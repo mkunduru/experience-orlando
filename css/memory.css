@@ -1,0 +1,305 @@
+.container {
+    background-color: #46c6e5; 
+}
+
+svg {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+.instruction-overlay {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ADADAD;
+}
+
+.instruction-overlay svg {
+    width: 60vw;
+    height: 60vh;
+    margin: 0 21vw 0 19vw;
+    padding-top: 15vh;
+}
+
+.in-game-instruction svg {
+    width: 400px;
+    height: 400px;
+}
+
+.card {
+    display: none;
+}   
+
+.visible {
+    display: block;
+}
+
+.window {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 40;
+}
+
+.window__shutter {
+    transition: all 0.5s ease-in-out;
+}
+
+.window__shutter--locked {
+    visibility: hidden;
+}
+
+.window--locked .window__shutter--locked {
+    visibility: visible;
+    cursor: not-allowed;
+}
+
+.window__shutter--left,
+.window__shutter--right {
+    transition: all 0.25s ease-in-out;
+}
+
+.points-text {
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Raleway SemiBold';
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.points-text.trigger {
+    animation: 1s move-points linear;
+}
+
+@keyframes move-points {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   Instruction Overlay Animations
+   ========================================================================== */
+
+#hand {
+    animation: instruction-video 8s linear forwards 0.5s infinite;
+}
+
+@keyframes instruction-video {
+    10% {
+        transform: translate(-100px, -150px);
+    }
+    15% {
+        transform: translate(-100px, -150px);
+    }
+    27%{
+        transform: translate(120px, -150px);
+        opacity: 1;
+    }
+    32%{
+        transform: translate(120px, -150px);
+        opacity: 1;
+    }
+    33%{
+        transform: translate(120px, -150px);
+        opacity: 0;
+    }
+    55% {
+        transform: translate(120px, -150px);
+        opacity: 0;
+    }
+    56% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    57% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+#handclick {
+    opacity: 0;
+    animation: instruction-click 8s linear forwards 0.5s infinite;
+}
+
+@keyframes instruction-click {
+    10% {
+        transform: translate(-100px, -150px);
+        opacity: 0;
+    }
+    11% {
+        transform: translate(-100px, -150px);
+        opacity: 1;
+    }
+    14% {
+        transform: translate(-100px, -150px);
+        opacity: 1;
+    }
+    15% {
+        transform: translate(-100px, -150px);
+        opacity: 0;
+    }
+    27%{
+        transform: translate(120px, -150px);
+        opacity: 0;
+    }
+    28% {
+        transform: translate(120px, -150px);
+        opacity: 1;
+    }
+    32% {
+        transform: translate(120px, -150px);
+        opacity: 1;
+    }
+    33% {
+        transform: translate(120px, -150px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(120px, -150px);
+        opacity: 0;
+    }
+}
+
+#wlleft {
+    animation: slide-left-left-shutter 8s linear forwards 0.5s infinite;
+}
+
+#wlright {
+    animation: slide-left-right-shutter 8s linear forwards 0.5s infinite;
+}
+
+#wrleft {
+    animation: slide-right-left-shutter 8s linear forwards 0.5s infinite;
+}
+
+#wrright {
+    animation: slide-right-right-shutter 8s linear forwards 0.5s infinite;
+}
+
+@keyframes slide-left-left-shutter {
+    12% {
+        transform: translate(0, 0);
+    }
+    15% {
+        transform: translate(-100px, 0);
+    }
+    50% {
+        transform: translate(-100px, 0);
+    }
+    55% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-left-right-shutter {
+    12% {
+        transform: translate(0, 0);
+    }
+    15% {
+        transform: translate(100px, 0);
+    }
+    50% {
+        transform: translate(100px, 0);
+    }
+    55% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-right-left-shutter {
+    30% {
+        transform: translate(0, 0);
+    }
+    33%{
+        transform: translate(-100px, 0);
+    }
+    50% {
+        transform: translate(-100px, 0);
+    }
+    55% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-right-right-shutter {
+    30% {
+        transform: translate(0, 0);
+    }
+    33%{
+        transform: translate(100px, 0);
+    }
+    50% {
+        transform: translate(100px, 0);
+    }
+    55% {
+        transform: translate(0, 0);
+    }
+}
+
+#click {
+    opacity: 0;
+    animation: mouse-instruction 2s linear forwards infinite;
+}
+
+@keyframes mouse-instruction {
+    15% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+} 
+
+
+/* ==========================================================================
+   Cloud Animations
+   ========================================================================== */
+
+#memorycloud3 {
+    animation: move-cloud 35s linear forwards infinite;
+    opacity: 0;
+}
+
+#memorycloud2 {
+    animation: move-cloud 30s linear forwards -20s infinite;
+    opacity: 0;
+}
+
+#memorycloud1 {
+    animation: move-cloud 35s linear forwards -15s infinite;
+    opacity: 0;
+}
+
+@keyframes move-cloud {
+  0% {
+    opacity: 1;
+    transform: translateX(-5vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(105vw);
+  }
+}

@@ -1,0 +1,292 @@
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    font-family: 'Raleway Regular', sans-serif;
+}
+
+h1 {
+    font: 400 150px/150px 'Chicle', cursive;
+    padding-top: 100px;
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+
+h4 {
+    font-family: 'Raleway ExtraLight', sans-serif;
+    font-size: 36px;
+    margin-top: 0;
+    text-align: left;
+}
+
+h5 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin: 1em auto 0 auto;
+}
+
+.top-fold {
+    height: 65vh;
+    background-color: #ffc107;
+}
+
+.bottom-fold {
+    height: 35vh;
+    background-color: orange;
+    display: flex;
+}
+
+.back {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    z-index: 1000;
+    width: 30px;
+}
+
+.subtitle {
+    font-size: 21px;
+    margin: -0.8em 0 0 8em;
+    letter-spacing: 0.5px;
+}
+
+.desc {
+    font-size: 24px;
+    line-height: 42px;
+    letter-spacing: 0.75px;
+    text-align: left;
+    width: 860px;
+    margin: 2em auto 0 auto;
+}
+
+.landing-button {
+    display: inline-block;
+    font-family: 'Raleway ExtraLight';
+    margin-top: 30px;
+    font-size: 24px;
+    background-color: #F44336;
+    padding: 0.65em 1.4em 0.8em 1.4em;
+    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+
+.landing-button:hover {
+    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+}
+
+.minigames {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 21px;
+    width: 950px;
+}
+
+.minigame {
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    box-shadow: -5px 10px 2px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.minigame-section {
+    cursor: pointer;
+}
+
+.minigame:hover {
+    transform: scale(0.9);
+    box-shadow: -2px 4px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.minigame:hover::after {
+    content: "";
+    position: absolute;
+    z-index: 1800;
+    background-color: #F44336;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    animation: 0.3s fill forwards;
+}
+
+.minigame:hover::before {
+    content: "Play";
+    position: absolute;
+    z-index: 2000;
+    top: 41%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: 0.3s fill-content forwards;
+    letter-spacing: 1px;
+}
+
+@keyframes fill {
+    0% {
+        opacity: 0.9;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+}
+
+@keyframes fill-content {
+    0% {
+        opacity: 1;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.coaster {
+    background-position: -110px 30px;
+    background-size: 250%;
+    background-image: url("../img/minigames/universal.svg");
+    position: relative;
+}
+
+.balloon {
+    background-position: -63px -5px;
+    background-size: 160%;
+    background-image: url("../img/minigames/balloon.svg"); 
+    position: relative;
+}
+
+.castle {
+    background-position: -45px -56px;
+    background-size: 175%;
+    background-image: url("../img/minigames/disney.svg");
+    position: relative;
+}
+
+.flight{
+    position: absolute;
+    left: 0;
+    top: 75px;
+    z-index: 20;
+    animation: enter-flight 16s linear forwards;
+}
+
+.flight svg {
+    width: 100px;
+}
+
+@keyframes enter-flight {
+    100% {
+        left: 100vw;
+    }
+}
+
+@media only screen and (max-width: 1824px) {
+	.flight {
+		top: 60px;
+	}
+
+	h1 {
+	    padding-top: 75px;
+	}
+}
+
+@media only screen and (max-width: 1500px) {
+	.flight {
+		top: 60px;
+	}
+
+	.flight svg {
+		width: 80px;
+	}
+
+	h1 {
+		font-size: 128px;
+		line-height: 128px;
+		padding-top: 75px;
+	}
+
+	h4 {
+	    font-size: 32px;
+	}
+
+	h5 {
+	    font-size: 16px;
+	}
+
+	.subtitle {
+	    font-size: 18px;
+	}
+
+	.desc {
+	    font-size: 22px;
+	    line-height: 36px;
+	    width: 750px;
+	    margin: 1.5em auto 0 auto;
+	}
+
+	.landing-button {
+	    margin-top: 35px;
+	    font-size: 21px;
+	}
+
+	.minigames {
+	    font-size: 21px;
+	    width: 800px;
+	}
+
+	.minigame {
+	    width: 125px;
+	    height: 125px;
+	}
+
+	.coaster {
+	    background-position: -90px 25px;
+	}
+
+	.balloon {
+	    background-position: -53px -5px;
+	}
+
+	.castle {
+	    background-position: -38px -46px;
+	}
+}
+
+@media only screen and (max-width: 1224px) {
+	
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}

@@ -1,0 +1,495 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Balloon Game</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/game.css">
+        <link rel="stylesheet" href="css/balloon.css">
+    </head>
+    <body>
+        <div class="instruction-overlay">
+            <div class="page-title">
+                <p>How To Play</p>
+            </div>
+            <div class="instruction-balloonkeys">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 253.6 166.2" style="enable-background:new 0 0 253.6 166.2;" xml:space="preserve">
+                    <g id="keys">
+                        <g id="leftkey">
+                            <g style="opacity:0.2;">
+                                <path d="M58.5,97.6H10.1C4.5,97.6,0,102.1,0,107.7v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                    C68.6,102.1,64.1,97.6,58.5,97.6z"/>
+                            </g>
+                            <g>
+                                <path style="fill:#F2F2F2;" d="M65.3,89H16.9c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4
+                                    c5.6,0,10.1-4.5,10.1-10.1V99.1C75.5,93.6,70.9,89,65.3,89z"/>
+                                <polygon style="fill:#999999;" points="45.7,133.1 31.1,123.3 45.7,113.6             "/>
+                            </g>
+                        </g>
+                        <g id="downkey">
+                            <g>
+                                <path style="opacity:0.2;enable-background:new    ;" d="M147.6,97.6H99.2c-5.6,0-10.1,4.5-10.1,10.1v48.4
+                                c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4C157.7,102.1,153.2,97.6,147.6,97.6z"/>
+                            </g>
+                            <g>
+                                <path style="fill:#F2F2F2;" d="M154.4,89H106c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4
+                                c5.6,0,10.1-4.5,10.1-10.1V99.1C164.6,93.6,160,89,154.4,89z"/>
+                                <polygon style="fill:#999999;" points="140.2,117.9 130.4,132.3 120.6,117.9      "/>
+                            </g>
+                        </g>
+                        <g id="upkey">
+                            <g style="opacity:0.2;">
+                                <path d="M147.7,8.5H99.3c-5.6,0-10.1,4.5-10.1,10.1v48.5c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1V18.7
+                                    C157.9,13.1,153.3,8.5,147.7,8.5z"/>
+                            </g>
+                            <g>
+                                <path style="fill:#F2F2F2;" d="M154.6,0h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4
+                                    c5.6,0,10.1-4.5,10.1-10.1V10.1C164.7,4.5,160.2,0,154.6,0z"/>
+                                <polygon style="fill:#999999;" points="120.6,39.5 130.4,25 140.2,39.5           "/>
+                            </g>
+                        </g>
+                        <g id="rightkey">
+                            <g style="opacity:0.2;">
+                                <path d="M236.7,97.6h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                    C246.8,102.1,242.3,97.6,236.7,97.6z"/>
+                            </g>
+                            <g>
+                                <path style="fill:#F2F2F2;" d="M243.5,89h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4
+                                    c5.6,0,10.1-4.5,10.1-10.1V99.1C253.6,93.6,249.1,89,243.5,89z"/>
+                                <polygon style="fill:#999999;" points="214.8,113.6 229.4,123.3 214.8,133.1          "/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="instruction-balloon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 417 352.6" style="enable-background:new 0 0 417 352.6;" xml:space="preserve">
+                    <g id="totalballoon">
+                        <g>
+                            <path style="fill:#8AD4EB;" d="M278.5,322.5h-0.2c1.3-2.8,1.9-5.8,1.9-9.1c0-12.5-10.2-22.8-22.8-22.8c-4.4,0-8.6,1.3-12,3.4
+                                c-4.7-11.6-16.1-19.7-29.3-19.7c-17.5,0-31.8,14.2-31.8,31.8c0,1.3,0.2,2.7,0.3,3.9c-0.2,0-0.2,0-0.3,0
+                                c-11.7,0-21.3,9.5-21.3,21.3c0,11.7,9.5,21.3,21.3,21.3h94.2c8.3,0,15-6.7,15-15C293.5,329.5,286.7,322.5,278.5,322.5z"/>
+                            <path style="fill:#8AD4EB;" d="M113.7,26.6c-3.6,0-7,0.6-10.3,1.9c0-0.3,0-0.8,0-1.1c0-15.2-12-27.4-26.9-27.4
+                                c-13.6,0-25,10.3-26.7,23.8c-1.3-0.3-2.7-0.5-4.1-0.5c-6.4,0-12,3.6-15,8.9c-1.9-0.5-3.9-0.6-5.9-0.6C11.1,31.6,0,42,0,54.9
+                                s11.1,23.3,24.7,23.3c0.8,0,1.6,0,2.3-0.2c0.3,0,0.6,0.2,1.1,0.2h88.7c0.8,0,1.6-0.2,2.2-0.5c12.4-2.3,21.7-12.8,21.7-25.2
+                                C141,38,128.7,26.6,113.7,26.6z"/>
+                            <path style="fill:#8AD4EB;" d="M395.7,112.7c-0.9-5.8-3.3-11-6.6-15.2c0.3,0,0.8,0.2,1.1,0.2c-0.3,0-0.8-0.2-1.1-0.2
+                                c-6.7-8.8-17.7-13.9-30.3-13.9c-0.2,0-0.3,0-0.5,0c-11.3,0.2-21.4,5.2-28.2,13.1c-1.4-0.3-3-0.5-4.5-0.5
+                                c-11.7,0-21.4,9.9-24.4,20.6c-9.7,0.5-17.5,12.4-17.5,22.2c0,10.2,8.1,18.3,18.3,18.3h56.3h37.4c10.2,0,21.3-10.8,21.3-21
+                                C417,125.1,405.7,113,395.7,112.7z"/>
+                        </g>
+                        <g id="landingballoon">
+                            <polygon style="fill:#7C3119;" points="159.5,185.4 162.9,184.2 170,225.4 166.9,226.6        "/>
+                            <polygon style="fill:#7C3119;" points="123.9,225.3 130,171.1 132.5,172.5 126.7,226.7        "/>
+                            <polygon style="opacity:0.2;enable-background:new    ;" points="123.9,225.3 130,171.1 132.5,172.5 126.7,226.7       "/>
+                            <g>
+                                <path style="fill:#EE4638;" d="M145.5,51.3c30.8,0,43.7,28.4,43.7,54.2c0,35.2-21.1,57.6-31.2,75.3h-24.8
+                                    c-9.9-17.7-31.2-40.2-31.2-75.3C102,79.7,114.9,51.3,145.5,51.3C101.2,51.3,81,80,81,106.7c0,28.2,19.2,47.8,34.4,63.8
+                                    c4.8,4.9,9,9.4,12.2,13.5c0.3,0.4,6.2,10,6.7,10h21.9c0.5,0,6.5-9.5,6.7-10c3.2-4.1,7.7-8.7,12.2-13.5
+                                    c15.3-15.9,34.4-35.7,34.4-63.8C210,80,189.9,51.3,145.5,51.3z"/>
+                                <path style="fill:#FABF17;" d="M145.5,51.3c-41.9,0-59.6,28.4-59.6,54.2c0,35.2,28.9,57.6,42.7,75.3h33.9
+                                    c13.7-17.6,42.7-40.1,42.7-75.3C205,79.7,187.5,51.3,145.5,51.3z"/>
+                                <path style="fill:#FFFFFF;" d="M102,105.5c0,35.2,21.1,57.6,31.2,75.3h24.7c10-17.7,31.2-40.2,31.2-75.3
+                                    c0-25.8-13-54.2-43.7-54.2C114.9,51.3,102,79.7,102,105.5z"/>
+                                <path style="fill:#EE4638;" d="M92.2,105.5c0,35.2,26,57.6,38.3,75.3h30.4c12.3-17.6,38.3-40.1,38.3-75.3
+                                    c0-25.8-15.9-54.2-53.7-54.2C108,51.3,92.2,79.7,92.2,105.5z"/>
+                                <path style="fill:#FABF17;" d="M102,105.5c0,35.2,21.1,57.6,31.2,75.3h24.7c10-17.7,31.2-40.2,31.2-75.3
+                                    c0-25.8-13-54.2-43.7-54.2C114.9,51.3,102,79.7,102,105.5z"/>
+                                <path style="fill:#EE4638;" d="M153.5,180.9c6.6-17.7,22.7-40.2,22.7-76.3c0-25.2-9.1-53.3-30.8-53.3s-30.8,27.9-30.8,53.3
+                                    c0,36,16.1,58.6,22.9,76L153.5,180.9z"/>
+                                <path style="fill:#FABF17;" d="M148.5,180.9c2.5-17.7,8.3-40.2,8.3-76.3c0-25.2-3.4-53.3-11.4-53.3s-11.3,27.9-11.3,53.3
+                                    c0,36,5.9,58.6,8.3,76L148.5,180.9z"/>
+                            </g>
+                            <g>
+                                <rect x="136.5" y="221.7" style="fill:#9C1F60;" width="18.1" height="21.7"/>
+                                <path style="fill:#F1B59A;" d="M146.5,201.1c4.2,2.9,6.9,6.9,8.2,10.6c-0.8,4.6-4.9,7.7-9.3,7.7c-4,0-7.5-2.6-8.9-6.2
+                                    C138.7,208.5,141.7,203.5,146.5,201.1z"/>
+                                <g>
+                                    <circle style="fill:#333333;" cx="142" cy="210.9" r="1.3"/>
+                                </g>
+                                <g>
+                                    <circle style="fill:#333333;" cx="149" cy="210.9" r="1.3"/>
+                                </g>
+                                <g>
+                                    <path style="fill:#333333;" d="M148.4,215.4c-0.3-0.3-0.5-0.5-1.1-0.3c0,0-0.8,0.5-1.9,0.5s-1.9-0.5-1.9-0.5
+                                        c-0.3-0.3-0.8,0-1.1,0.3s0,0.8,0.3,1.1c0,0,1.1,0.5,2.6,0.5c1.6,0,2.4-0.5,2.6-0.5C148.4,216.2,148.5,216,148.4,215.4z"/>
+                                </g>
+                                <path style="fill:#333333;" d="M159.9,229c0,0-1.9-6.6-1.3-13.1c0-0.8,0.3-1.3,0.3-2.1c0.8-9.5-1.1-20-13.9-17.8
+                                    c-14.4,2.4-13.3,20-9.9,29.6l0,0c0.3,0.5,0.3,0.8,0.5,1.3s0.5,1.1,0.8,1.6c-1.3,3.2-1.9,7.3-1.9,11.5h3.2c0-2.9,0.5-5.9,1.1-8.2
+                                    c1.9,2.1,3.6,3.2,3.6,3.2s-2.9-8.9,1.9-11.5c0.5-0.3,1.3-0.5,1.9-0.5c1.1,0,2.1,0.5,2.9,1.1c4.9,4,0,14.4,0,14.4s2.6-1.3,4.9-5.6
+                                    c0.5,2.1,0.8,4.6,0.8,6.9h3.2c0-1.6,0-3.2-0.3-4.9c-0.3-2.9-0.3-6.2,0-9.1C158.5,228.2,159.9,229,159.9,229z M146.4,201
+                                    c4.2,2.9,6.9,6.9,8.2,10.6c-0.8,4.6-4.9,7.7-9.3,7.7c-4,0-7.5-2.6-8.9-6.2C138.7,208.5,141.7,203.3,146.4,201z"/>
+                            </g>
+                            <rect x="116.5" y="225.7" style="fill:#7C3119;" width="58.6" height="2.9"/>
+                            <rect x="116.5" y="225.7" style="opacity:0.2;enable-background:new    ;" width="29.2" height="2.9"/>
+                            <polygon style="fill:#7C3119;" points="167.4,265.1 124.4,265.1 119.5,225.7 172.4,225.7      "/>
+                            <line style="fill:none;stroke:#A43E23;stroke-width:0.9999;stroke-miterlimit:10;" x1="121" y1="240.3" x2="170.7" y2="240.3"/>
+                            <line style="fill:none;stroke:#A43E23;stroke-width:0.9999;stroke-miterlimit:10;" x1="122" y1="248.8" x2="169.7" y2="248.8"/>
+                            <line style="fill:none;stroke:#A43E23;stroke-width:0.9999;stroke-miterlimit:10;" x1="123" y1="257.9" x2="168.5" y2="257.9"/>
+                            <path style="fill:none;stroke:#FABF17;stroke-width:0.9999;stroke-miterlimit:10;" d="M117,225.9c10.3,15.7,19.3,0,19.3,0"/>
+                            <path style="opacity:0.2;enable-background:new    ;" d="M145.5,51.5c-44.3,0-64.5,28.7-64.5,55.4c0,28.2,19.2,47.8,34.4,63.8
+                                c4.8,4.9,9,9.4,12.2,13.5c0.3,0.4,6.2,10,6.7,10h11.2L145.5,51.5"/>
+                            <path style="fill:none;stroke:#FABF17;stroke-width:0.9999;stroke-miterlimit:10;" d="M155.5,225.9c0,0-9,15.7-19.3,0"/>
+                            <path style="fill:none;stroke:#FABF17;stroke-width:0.9999;stroke-miterlimit:10;" d="M155.5,225.9c10.3,15.7,19.3,0,19.3,0"/>
+                            <path style="fill:#EA2725;" d="M136.2,225.8c0,0-6.1,9.4,0,9.4S136.2,225.8,136.2,225.8z"/>
+                            <path style="fill:#EA2725;" d="M117.3,225.7c0,0-6.1,9.4,0,9.4S117.3,225.7,117.3,225.7z"/>
+                            <path style="fill:#EA2725;" d="M155.5,225.9c0,0-6.1,9.4,0,9.4S155.5,225.9,155.5,225.9z"/>
+                            <path style="fill:#EA2725;" d="M174.7,225.8c0,0-6.1,9.4,0,9.4C180.9,235.3,174.7,225.8,174.7,225.8z"/>
+                            <polyline style="opacity:0.2;enable-background:new    ;" points="172.9,225.7 119.5,225.7 124.4,265.1 146,265.1 145.7,225.7 
+                                119.5,225.7         "/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="instruction-collect">
+                <p class="instruction-title"> Collect </p>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 206.1 359.1" style="enable-background:new 0 0 206.1 359.1;" xml:space="preserve">
+                    <g>
+                        <rect style="opacity:5.000000e-02;enable-background:new    ;" width="206.1" height="359.1"/>
+                        <g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="41.8" y1="151.5" x2="41.8" y2="197.8"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="52.4" y1="162.3" x2="52.4" y2="208.6"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="62.9" y1="156.3" x2="62.9" y2="181.7"/>
+                            </g>
+                            <g>
+                                <path style="fill:#FFFFFF;" d="M55.6,215.6c9.6,0,17.5,7.8,17.5,17.5s-7.8,17.4-17.5,17.4s-16.5-7.8-16.5-17.4
+                                    S45.9,215.6,55.6,215.6z"/>
+                                <g>
+                                    <path style="fill:#009245;" d="M59.4,216c2.7,1,5.2,2.4,7.1,4.3c5.7,5.7,6.1,14.6,1.2,20.7c-0.4,0.5-0.8,1-1.2,1.4
+                                        c-2.4,2.4-5.6,3.7-9,3.7s-6.6-1.3-9-3.7c-2-2-3.1-4.6-3.1-7.4s1.1-5.4,3.1-7.4c3.3-3.3,8.8-3.3,12.1,0c1.3,1.3,2.1,3.1,2.1,5
+                                        s-0.7,3.7-2.1,5c-2.3,2.3-6.1,2.3-8.4,0c-0.9-0.9-1.5-2.2-1.5-3.5s0.5-2.6,1.5-3.5c0.5-0.5,1.2-0.5,1.7,0
+                                        c0.2,0.2,0.3,0.5,0.3,0.8s-0.1,0.6-0.3,0.8c-0.5,0.5-0.8,1.2-0.8,1.9c0,0.7,0.3,1.4,0.8,1.9c1.4,1.4,3.7,1.4,5.1,0
+                                        c0.9-0.9,1.4-2.1,1.4-3.4s-0.5-2.5-1.4-3.4c-2.4-2.4-6.4-2.4-8.8,0c-1.5,1.5-2.4,3.6-2.4,5.7c0,2.2,0.8,4.2,2.4,5.7
+                                        c2,2,4.6,3.1,7.4,3.1s5.4-1.1,7.4-3.1c2.6-2.6,3.9-6,3.9-9.4s-1.3-6.8-3.9-9.4c-3.6-3.6-10-5.4-14.7-5.4
+                                        c-7.1,2.4-11.9,8.9-11.9,16.5c0,9.3,6.5,16.9,15.6,17.5v20c0,0.6,1.3,1.2,1.9,1.2s1.9-0.5,1.9-1.2v-20
+                                        c9.1-0.6,15.6-8.2,15.6-17.5C73.4,224.8,67.3,217.7,59.4,216z"/>
+                                </g>
+                                <path style="opacity:0.2;fill:#221F1F;enable-background:new    ;" d="M56,215.5c-9.7,0-17.5,7.8-17.5,17.5s7.4,17.9,17.5,17.5
+                                    c0,0-10.6-6.9-10.6-17.5S56,215.5,56,215.5z"/>
+                                <path style="opacity:0.2;fill:#221F1F;enable-background:new    ;" d="M55.8,271.6v-21.2H54v20c0,0,0,0.5,0.9,0.9
+                                    C54.9,271.4,55.4,271.6,55.8,271.6z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="97.3" y1="108.7" x2="97.3" y2="147.3"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="107.8" y1="117.7" x2="107.8" y2="156.3"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="118.3" y1="112.8" x2="118.3" y2="133.9"/>
+                            </g>
+                            <g>
+                                <polygon style="fill:#FFFFFF;" points="94.4,169.2 95.2,175.6 117,182 118.8,176.2 118.6,168.8            "/>
+                                <polygon style="fill:#FBC32D;" points="95.2,175.6 117,182 109.7,186.4 109.8,189.9 117.1,196 118.9,201.8 119,208.2 93.8,208.6 
+                                    94.8,201.9 98.1,193.1 103.4,189.5 102.6,186.1 95.2,178.7            "/>
+                                <g>
+                                    <path style="fill:#7C3119;" d="M124.1,166.7H89.4v5.3h3.5c-0.1,2.6,0.3,11,9,16.3v0.2v1.1v0.2c-8.8,5.3-9.1,13.8-9,16.3h-3.5
+                                        v5.3h34.7v-5.3h-3.5c0.1-2.5-0.2-11-9-16.3v-0.2v-1.1v-0.2c8.7-5.2,9.1-13.7,9-16.3h3.5V166.7z M109.6,186.3l-0.7,0.4v1.8v1.1
+                                        v1.8l0.7,0.4c8.5,4.7,8.4,12.6,8.3,14.3H95.7c-0.1-1.7-0.3-9.6,8.3-14.3l0.7-0.4v-1.8v-1.1v-1.8l-0.7-0.4
+                                        c-8.4-4.6-8.4-12.4-8.3-14.2h22.2C118,173.9,118,181.6,109.6,186.3z"/>
+                                </g>
+                                <g style="opacity:0.2;">
+                                    <path d="M102.8,211.4c-1.2-13.8,1.9-20,1.9-20v-4.7c-4.3-8.7-1.9-20-1.9-20H89.4v5.3h3.5c-0.1,2.6,0.3,11,9,16.3v0.2v1.1v0.2
+                                        c-8.8,5.3-9.1,13.8-9,16.3h-3.5v5.3H102.8z"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="144.6" y1="219.2" x2="144.6" y2="257"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="155.1" y1="228.1" x2="155.1" y2="265.8"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="165.6" y1="223.2" x2="165.6" y2="243.9"/>
+                            </g>
+                            <g>
+                                <g>
+                                    <path style="fill:#FFFFFF;" d="M139.3,283.3l20.2,20.2c0.4-0.6,0.8-1.3,1.1-1.9l-19.4-19.4C140.6,282.5,139.9,282.9,139.3,283.3
+                                        z"/>
+                                    <g>
+                                        <path style="fill:#FFFFFF;" d="M142.4,297.1c-0.3,0.3-0.5,0.4-0.8,0.6l11.2,11.2c0.7-0.3,1.3-0.6,1.9-0.9L143,296.3
+                                            C142.8,296.5,142.6,296.8,142.4,297.1z"/>
+                                        <path style="fill:#FFFFFF;" d="M137.5,292.2c0.2-0.2,0.5-0.4,0.8-0.6l-3.5-3.5c-0.4,0.6-0.7,1.4-0.9,2l3,3.9
+                                            C137.1,293.7,137.2,292.4,137.5,292.2z"/>
+                                        <path style="fill:#FFFFFF;" d="M142.7,297.4c0.2-0.2,0.4-0.5,0.6-0.8l-5.2-5.2c-0.3,0.2-0.6,0.3-0.8,0.6
+                                            c-0.3,0.3-0.4,1.5-0.6,1.8l5.2,5.2C142.2,298.8,142.5,297.6,142.7,297.4z"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <path style="fill:#FF5722;" d="M137.1,285.1c-0.9,0.9-1.7,1.9-2.3,3l3.5,3.5c1.3-0.7,3-0.5,4.1,0.6c1.1,1.1,1.3,2.8,0.6,4.1
+                                        l11.7,11.7c1.1-0.6,2.1-1.4,3-2.3c0.7-0.7,1.3-1.4,1.8-2.2l-20.2-20.2C138.5,283.8,137.8,284.4,137.1,285.1z"/>
+                                    <path style="fill:#FF5722;" d="M137.5,297.1c-1.1-1.1-1.3-2.7-0.6-4l-3-3c-1.6,4.2-1.3,8.9,1.1,12.8h-0.1l-6,1.5
+                                        c-3,0.8-5.5,2.9-4,4.4c1.1,1.1,3.8,1,6,0.1v0.1c-1.6,1.6-2.3,3.9-1.2,5c0.6,0.6,1.5,0.7,2.4,0.4c0.9-0.2,1.8-0.8,2.6-1.5
+                                        c0.1,0,0.1,0,0.2,0c-0.9,2.3-1.1,5.1,0,6.3c1.5,1.5,3.7-1.1,4.5-4.2l1.6-6.2l0.1-0.4c3.7,1.8,8,2,11.8,0.5l-11.2-11.2
+                                        C140.2,298.3,138.6,298.1,137.5,297.1z"/>
+                                    <path style="fill:#FF5722;" d="M171.6,282c-1.2-1.2-4-1-6.3,0c0-0.1,0-0.1,0-0.2c0.7-0.8,1.3-1.7,1.5-2.6c0.3-1,0.2-1.8-0.4-2.4
+                                        c-1.1-1.1-3.4-0.4-5,1.2h-0.1c0.9-2.2,1-4.9-0.1-6c-1.5-1.5-3.6,1-4.4,4l-1.5,6l-0.2,0.9c-4.2-2.6-9.5-2.8-13.9-0.7l19.4,19.4
+                                        c2-4.2,1.9-9.3-0.4-13.4l1-0.3l6.2-1.6C170.5,285.7,173.1,283.5,171.6,282z"/>
+                                    <path style="fill:#FF5722;" d="M142.3,291.2c-1.1-1.1-2.7-0.3-4,0.4l4.9,4.9C144,295.3,143.4,292.3,142.3,291.2z"/>
+                                    <path style="fill:#FF5722;" d="M137.6,298c1.1,1.1,2.8,0.3,4.1-0.3l-4.9-4.7C136.1,294.2,136.5,296.9,137.6,298z"/>
+                                </g>
+                                <path style="opacity:0.2;enable-background:new    ;" d="M137.2,305.5c-5.7-5.2-5.8-14.7-0.1-20.4c5.7-5.7,15.1-5.7,20.7,0
+                                    c0,0-9.5-0.5-15.3,5.2C136.8,296.1,137.2,305.5,137.2,305.5z"/>
+                                <path style="opacity:0.2;enable-background:new    ;" d="M157.8,285.1c0,0-1.8-1.7-2.7-2.2l0.2-0.9l1.5-6c0.8-3,2.9-5.5,4.4-4
+                                    c1.1,1.1,1,3.8,0.1,6L157.8,285.1"/>
+                                <path style="opacity:0.2;enable-background:new    ;" d="M130.9,308.9c-2.2,0.9-4.9,1-6-0.1c-1.5-1.5,1-3.6,4-4.4l6.1-1.5
+                                    c0,0,1.5,1.9,2.2,2.6L130.9,308.9z"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="instruction-avoid">
+                <p class="instruction-title"> Avoid </p>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 206.1 359.1" style="enable-background:new 0 0 206.1 359.1;" xml:space="preserve">
+                    <g>
+                        <rect style="opacity:5.000000e-02;enable-background:new    ;" width="206.1" height="359.1"/>
+                        <g>
+                            <g>
+                                <g>
+                                    <path style="fill:#B3B3B3;" d="M155.6,139.8c0,0-1.3-3.8-5.4-3.8c0,0,6.4-5.1,8.4-11.2c2-6-1.1-13.4-4.2-17.3c0,0-1.4,1-0.9,2.8
+                                        c0,0-1.7-1.7-2.4-0.3c-0.5,1,0.4,2.4,0.4,2.4s-1.6-1.7-2.5-0.8c-0.8,0.8,0.3,2.5,0.3,2.5s-1.4-0.9-1.9,0.3
+                                        c-0.6,1.1,0.6,2.9,0.6,2.9s-1.2-0.8-2,0.5s0.3,4,0.3,4s-2-0.1-2.4,3.4c-0.3,3.4-4,8.9-10.1,12.7c0,0-6.1-3.3-12.3-10.4
+                                        c-4.8-5.5-6.3-5.6-13.4-5.9c-7.6-0.3-14.2-2.4-19.6-6.5c-3.6-2.8-5.5-3.8-4.6-0.4c1.1,3.8,8.8,10.4,8.8,10.4s-6.6-3.7-7-1.7
+                                        c-0.3,1.9,3.2,5.6,7.9,8.2c3.6,1.9,5.3,1.9,5.3,1.9s-3.7-0.4-6.1-0.7c-2.1-0.3-2,2.6,1.7,4.3c4.6,2.1,9.6,1.9,9.6,1.9
+                                        s-1.4,0.8-2.8,1.5s-0.4,2.9,3.1,3c3.7,0.1,4.6-0.2,4.6-0.2s-2.9,0.9-2.5,2.8c0.4,1.8,2.6,1.9,4.7,2.3c2.5,0.5,4.8,3.5,4.8,3.5
+                                        s-2.7,3.9-25.1,10.5c0,0,6.7,1.9,12.2,1.6c0,0-0.3,1.9,2.1,2.2c2.5,0.3,16.5-6.3,16.5-6.3s9.9,1.2,17.2-2.8
+                                        c7.3-4,11.3-11.3,15.4-12.5"/>
+                                </g>
+                                <circle style="fill:#CCCCCC;" cx="152.2" cy="139.9" r="1.2"/>
+                                <g>
+                                    <g>
+                                        <path style="fill:#FFFFFF;" d="M133.7,136.3c0,0-6.1-3.3-12.3-10.4c-4.8-5.5-6.3-5.6-13.4-5.9c-7.6-0.3-14.2-2.4-19.6-6.5
+                                            c-3.6-2.8-5.5-3.8-4.6-0.4c1.1,3.8,8.8,10.4,8.8,10.4s-6.6-3.7-7-1.7c-0.3,1.9,3.2,5.6,7.9,8.2c3.6,1.9,5.3,1.9,5.3,1.9
+                                            s-3.7-0.4-6.1-0.7c-2.1-0.3-2,2.6,1.7,4.3c4.6,2.1,9.6,1.9,9.6,1.9s-1.4,0.8-2.8,1.5s-0.4,2.9,3.1,3c3.7,0.1,4.6-0.2,4.6-0.2
+                                            s-2.9,0.9-2.5,2.8c0.4,1.8,2.6,1.9,4.7,2.3c2.5,0.5,4.8,3.5,4.8,3.5s-2.7,3.9-25.1,10.5c0,0,6.7,1.9,12.2,1.6
+                                            c0,0-0.3,1.9,2.1,2.2c2.5,0.3,16.5-6.3,16.5-6.3s9.9,1.2,17.2-2.8c7.3-4,11.3-11.3,15.4-12.5s5.9-1.8,5.9-1.8s-1.8-3.1-4.8-2.9
+                                            c0,0-1.3-3.8-5.4-3.8c0,0,6.4-5.1,8.4-11.2c2-6-1.1-13.4-4.2-17.3c0,0-1.4,1-0.9,2.8c0,0-1.7-1.7-2.4-0.3
+                                            c-0.5,1,0.4,2.4,0.4,2.4s-1.6-1.7-2.5-0.8c-0.8,0.8,0.3,2.5,0.3,2.5s-1.4-0.9-1.9,0.3c-0.6,1.1,0.6,2.9,0.6,2.9s-1.2-0.8-2,0.5
+                                            s0.3,4,0.3,4s-2-0.1-2.4,3.4C143.5,127.1,139.8,132.6,133.7,136.3z"/>
+                                    </g>
+                                </g>
+                                <path style="fill:#FF3D00;" d="M155.6,138.2c0,0,3.5-1.4,9,3.7l-14,3.5L155.6,138.2z"/>
+                                <circle style="fill:#333333;" cx="150.1" cy="139.1" r="1.2"/>
+                                <g>
+                                    <g>
+                                        <path style="fill:#E6E6E6;" d="M150.5,134.2c0,0,6.2-5,8.1-11c2-6-1.1-13.4-4.2-17.3c0,0-1.4,1-0.9,2.8c0,0-1.7-1.7-2.4-0.3
+                                            c-0.5,1,0.4,2.4,0.4,2.4s-1.6-1.7-2.5-0.8c-0.8,0.8,0.3,2.5,0.3,2.5s-1.4-0.9-1.9,0.3c-0.6,1.1,0.6,2.9,0.6,2.9s-1.2-0.8-2,0.5
+                                            s0.3,4,0.3,4s-2-0.1-2.4,3.4c-0.3,3.4-4,8.9-10.1,12.7C133.7,136.3,140.8,141.3,150.5,134.2z"/>
+                                    </g>
+                                </g>
+                            </g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="28.2" y1="189.9" x2="75" y2="156.6"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="32.4" y1="172.7" x2="79.2" y2="139.4"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="19.7" y1="167.6" x2="45.4" y2="149.3"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="72.1" y1="206.7" x2="72.1" y2="249.4"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="83.7" y1="216.7" x2="83.7" y2="259.4"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="95.2" y1="211.2" x2="95.2" y2="234.6"/>
+                            </g>
+                            <g>
+                                <circle style="fill:#BA2726;" cx="82" cy="305.9" r="21.1"/>
+                                <path style="fill:none;stroke:#333333;stroke-width:3.1836;stroke-linecap:round;stroke-miterlimit:10;" d="M82.3,275.6
+                                    c0,0-1.4-14,16.5-5.3"/>
+                                <path style="fill:#EE3B2C;" d="M82,284.8c11.6,0,21.1,9.4,21.1,21.1S93.7,327,82,327c-6.9,0-14.5-9.4-14.5-21.1
+                                    S77.2,284.8,82,284.8z"/>
+                                <rect x="74.2" y="281.1" style="fill:#EE3B2C;" width="15.4" height="5.6"/>
+                                <rect x="77.6" y="275.6" style="fill:#333333;" width="8.9" height="5.6"/>
+                                <rect x="74.2" y="281.2" style="fill:#BA2726;" width="3.2" height="5.5"/>
+                                
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-width:2.6209;stroke-linecap:round;stroke-miterlimit:10;" x1="92.9" y1="295" x2="91.4" y2="293.7"/>
+                                <path style="fill:none;stroke:#FFFFFF;stroke-width:2.6209;stroke-linecap:round;stroke-miterlimit:10;" d="M93.9,315.4
+                                    c0,0,6.1-7.6,1.9-15.6"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="141.8" y1="182.7" x2="141.8" y2="230.4"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="153.4" y1="193.8" x2="153.4" y2="241.5"/>
+                                <line style="fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;" x1="164.9" y1="187.7" x2="164.9" y2="213.9"/>
+                            </g>
+                            <g>
+                                <polygon style="fill:#66463E;" points="145.4,247 134.7,255.5 131.6,271.2 149.6,260.8            "/>
+                                <polygon style="fill:#66463E;" points="136.7,287.9 131.6,271.2 149.6,260.8 148.1,274            "/>
+                                <polygon style="fill:#7F574D;" points="140.8,291.8 136.7,287.9 148.1,274 153.1,281.2            "/>
+                                <polygon style="fill:#8B5F55;" points="159.3,295 140.8,291.8 153.1,281.2 161.5,283.3            "/>
+                                <polygon style="fill:#98695D;" points="159.3,295 170.8,291.1 175.3,282.8 177.9,273.1 161.5,283.3            "/>
+                                <polygon style="fill:#98695D;" points="145.4,247 162.9,251 173.8,259.4 149.6,260.8          "/>
+                                <polygon style="fill:#A47366;" points="173.8,259.4 177.9,273.1 161.5,283.3 153.1,281.2 148.1,274 149.6,260.8            "/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+
+            </div>
+            <div id="play" class="button">
+                <a>Start Game</a>
+            </div>
+        </div>
+        <div class="result-overlay">
+            <h1 class="result">Game Over</h1>
+            <p class="final-score">Your Score : <span class="final_points"></span>
+            <div class="character">
+                <img class="winner" src="img/games/winner.svg">
+                <img class="loser" src="img/games/loser.svg">
+            </div>
+            <div class="buttons">
+                <ul>
+                    <li><a class="button play_again">Play again</a></li>
+                    <li><a class="button" href="city.html">Explore city</a></li>
+                    <li><a class="button" href="landing.html">More games</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="level-overlay">
+        </div>
+        <div class="level-overlay__message">
+            <div>
+                <p class="title">Level 2</p>
+                <p class="message">Keep Going!</p>
+            </div>
+        </div>
+        <div class="in-game-instruction">
+            <svg id = "in-game-instruction" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 576 576" style="enable-background:new 0 0 576 576;" xml:space="preserve">
+                <style type="text/css">
+                    .inst_st0{opacity:0.2;}
+                    .inst_st1{fill:#FFFFFF;}
+                    .inst_st2{fill:#F2F2F2;}
+                    .inst_st3{fill:#999999;}
+                    .inst_st4{opacity:0.2;enable-background:new    ;}
+                    .inst_st5{fill:#FFC107;}
+                </style>
+                <g>
+                    <g class="inst_st0">
+                        <circle cx="239.9" cy="259.7" r="94.7"/>
+                        <circle cx="339.3" cy="267.1" r="92.6"/>
+                        <circle cx="269.8" cy="342.9" r="92.6"/>
+                        <circle cx="151" cy="296.4" r="47.8"/>
+                        <circle cx="167.2" cy="387.5" r="62.2"/>
+                        <circle cx="230.4" cy="452.5" r="62.2"/>
+                        <circle cx="329.1" cy="449.5" r="75.1"/>
+                        <circle cx="393.9" cy="378.4" r="69.6"/>
+                        <circle cx="423.5" cy="302.6" r="50.6"/>
+                        <circle cx="298.6" cy="201.8" r="52.2"/>
+                    </g>
+                    <g>
+                        <circle class="inst_st1" cx="243.7" cy="242.1" r="94.7"/>
+                        <circle class="inst_st1" cx="343.1" cy="249.4" r="92.6"/>
+                        <circle class="inst_st1" cx="273.6" cy="325.3" r="92.6"/>
+                        <circle class="inst_st1" cx="154.8" cy="278.7" r="47.8"/>
+                        <circle class="inst_st1" cx="171" cy="369.9" r="62.2"/>
+                        <circle class="inst_st1" cx="234.2" cy="434.9" r="62.2"/>
+                        <circle class="inst_st1" cx="332.9" cy="431.9" r="75.1"/>
+                        <circle class="inst_st1" cx="397.8" cy="360.7" r="69.6"/>
+                        <circle class="inst_st1" cx="427.3" cy="285" r="50.6"/>
+                        <circle class="inst_st1" cx="302.4" cy="184.2" r="52.2"/>
+                    </g>
+                </g>
+                <g id="instruction_keys">
+                    <g id="instruction_leftkey">
+                        <g class="inst_st0">
+                            <path d="M219.7,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                C229.9,328.3,225.3,323.8,219.7,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M226.6,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C236.7,319.8,232.2,315.2,226.6,315.2z"/>
+                            <polygon class="inst_st3" points="206.9,359.4 192.3,349.6 206.9,339.8            "/>
+                        </g>
+                    </g>
+                    <g id="instruction_downkey">
+                        <g>
+                            <path class="inst_st0" d="M308.8,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                            v-48.4C319,328.3,314.4,323.8,308.8,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M315.7,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                            v-48.4C325.8,319.8,321.3,315.2,315.7,315.2z"/>
+                            <polygon class="inst_st3" points="301.4,344 291.6,358.6 281.8,344        "/>
+                        </g>
+                    </g>
+                    <g id="instruction_upkey">
+                        <g class="inst_st0">
+                            <path d="M309,234.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1H309c5.6,0,10.1-4.5,10.1-10.1V245
+                                C319.1,239.4,314.6,234.8,309,234.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M315.8,226.3h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C326,230.8,321.4,226.3,315.8,226.3z"/>
+                            <polygon class="inst_st3" points="281.8,265.7 291.6,251.2 301.4,265.7            "/>
+                        </g>
+                    </g>
+                    <g id="instruction_rightkey">
+                        <g class="inst_st0">
+                            <path d="M397.9,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                C408,328.3,403.5,323.8,397.9,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M404.7,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C414.9,319.8,410.4,315.2,404.7,315.2z"/>
+                            <polygon class="inst_st3" points="376,339.8 390.6,349.6 376,359.4            "/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="toolbar">
+            <ul>
+                <li class="toolbar__score">
+                    <ul>
+                        <li class="toolbar__value"><span class="toolbar__score__value">0</span> / <span class="toolbar__value__game-score">1000</span></li>
+                        <li class="toolbar__title">SCORE</li>
+                    </ul>
+                </li>
+                <li class="toolbar__level">
+                    <ul>
+                        <li class="toolbar__value"><span class="game_level">0</span> / 3</li>
+                        <li class="toolbar__title">LEVEL</li>
+                    </ul>
+                </li>
+                <li class="toolbar__timer">
+                    <ul>
+                        <li class="toolbar__value">0 : 00</li>
+                        <li class="toolbar__title">TIME</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="toolbar__exit">
+                <img src="img/games/close.svg">
+            </div>
+        </div>
+        <div class="container">
+            <div class="clouds">
+                <div class="cloud cloud2"><img src="img/games/balloon/clouds/cloud2.svg"></div>
+                <div class="cloud cloud3"><img src="img/games/balloon/clouds/cloud3.svg"></div>
+                <div class="cloud cloud4"><img src="img/games/balloon/clouds/cloud4.svg"></div>
+                <div class="cloud cloud5"><img src="img/games/balloon/clouds/cloud5.svg"></div>
+                <div class="cloud cloud6"><img src="img/games/balloon/clouds/cloud6.svg"></div>
+            </div>
+            <div id="balloon"><img src="img/games/balloon/hotairballoon.svg"></div>
+        </div>
+    </body>
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/balloon.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+      ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</html>

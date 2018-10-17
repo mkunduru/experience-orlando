@@ -1,0 +1,122 @@
+body {
+	overflow: hidden;
+	margin: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	background-color: #11bfb2;
+	color: #fff;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+.character {
+	height: 35vh;
+	margin-top: 10vh;
+}
+
+.intro {
+	font: 400 108px/108px 'Chicle', cursive;
+	letter-spacing: 3.5px;
+	margin: 0.75em auto 0.1em auto;
+}
+
+.title {
+	font-family: 'Raleway Thin', cursive;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 4em;
+}
+
+.intro-button {
+    background-color: #FF811e;
+    font-family: 'Raleway ExtraLight';
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    padding: 0.65em 1em 0.8em 1em;
+    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+
+.intro-button:hover {
+    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+}
+
+
+/* ==========================================================================
+   Media Queries for Responsive Design.
+   ========================================================================== */
+
+@media only screen and (max-width: 1824px) {
+	.intro {
+		font-size: 96px;
+		line-height: 96px;
+	}
+}
+
+@media only screen and (max-width: 1500px) {
+	.intro {
+		font-size: 84px;
+		line-height: 84px;
+	}
+
+	.title {
+		font-size: 24px;
+	}
+}
+
+@media only screen and (max-width: 1224px) {
+	.character {
+		height: 28vh;
+		margin-top: 15vh;
+	}
+
+	.intro-button {
+	    font-size: 21px;
+	    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+	}
+
+	.intro-button:hover {
+	    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.intro {
+		font-size: 72px;
+		line-height: 72px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.intro {
+		font-size: 48px;
+		line-height: 48px;
+	}
+
+	.character {
+		height: 200px;
+		margin-top: 100px;
+	}
+
+	.title {
+		font-size: 18px;
+		margin-bottom: 50px;
+	}
+
+	.intro-button {
+	    font-size: 18px;
+	    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+	}
+
+	.intro-button:hover {
+	    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+}
