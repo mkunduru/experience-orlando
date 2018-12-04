@@ -103,6 +103,11 @@ textarea {
 }
 
 @font-face {
+    font-family: 'MasonSansRegular';
+    src: url('../fonts/MasonSansRegular.ttf');
+}
+
+@font-face {
     font-family: 'Raleway Medium';
     src: url('../fonts/Raleway-Medium.ttf');
 }
@@ -148,6 +153,35 @@ ul {
     padding-left: 0;
 }
 
+h1.result {
+    font-family: 'Chicle', cursive;
+    font-size: 72px;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.hvr-float-shadow:before {
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.button {
+    font-family: 'Raleway Regular';
+    font-size: 24px;
+    letter-spacing: 0.8px;
+    padding: 0.65em 1em 0.8em 1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.back {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+    width: 30px;
+    cursor: pointer;
+}
 
 /* ==========================================================================
    Helper classes
@@ -242,7 +276,9 @@ ul {
 }
 
 @media only screen and (max-width: 1224px) {
-
+    .button {
+        font-size: 21px;
+    }
 }
 
 @media only screen and (max-width: 1024px) {

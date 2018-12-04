@@ -58,29 +58,32 @@ function animate_city_lights() {
 }
 
 function start_fireworks() {
+    scrollX = window.scrollX;
+    scrollY = window.scrollY;
+
     position = $('#disneycastle')[0].getBoundingClientRect();
-    positionleft = position.left + (20 * position.left/100);
-    positiontop = position.top + (1 * position.top/100);
+    positionleft = position.left + scrollX + (20 * position.left/100);
+    positiontop = position.top + scrollY + (1 * position.top/100);
     $('.firework-1').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (50 * position.left/100);
-    positiontop = position.top;
+    positionleft = position.left + scrollX + (50 * position.left/100);
+    positiontop = position.top + scrollY;
     $('.firework-2').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (25 * position.left/100);
-    positiontop = position.top - (2 * position.top/100);
+    positionleft = position.left + scrollX + (25 * position.left/100);
+    positiontop = position.top + scrollY - (2 * position.top/100);
     $('.firework-3').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (40 * position.left/100);
-    positiontop = position.top + (5 * position.top/100);
+    positionleft = position.left + scrollX + (40 * position.left/100);
+    positiontop = position.top + scrollY + (5 * position.top/100);
     $('.firework-4').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (5 * position.left/100);
-    positiontop = position.top;
+    positionleft = position.left + scrollX + (5 * position.left/100);
+    positiontop = position.top + scrollY;
     $('.firework-5').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (40 * position.left/100);
-    positiontop = position.top + (2 * position.top/100);
+    positionleft = position.left + scrollX + (40 * position.left/100);
+    positiontop = position.top + scrollY + (2 * position.top/100);
     $('.firework-6').offset({left: positionleft, top: positiontop}).show();
 }
 
@@ -89,9 +92,12 @@ function stop_fireworks() {
 }
 
 function show_play_icons() {
-    position = $('#stadium')[0].getBoundingClientRect();;
-    positionleft = position.left + (18 * position.left)/100;
-    positiontop = position.top - (14 * position.top)/100;
+    scrollX = window.scrollX;
+    scrollY = window.scrollY;
+
+    position = $('#stadium')[0].getBoundingClientRect();
+    positionleft = position.left + scrollX + (18 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY - (14 * (position.top+scrollY))/100;
     $('#stadiuminfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#stadiuminfo').find('.landmark-info').height();
@@ -101,8 +107,8 @@ function show_play_icons() {
 
 
     position = $('#b2')[0].getBoundingClientRect();;
-    positionleft = position.left - (5 * position.left)/100;
-    positiontop = position.top - (7 * position.top)/100;
+    positionleft = position.left + scrollX - (5 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY - (7 * (position.top+scrollY))/100;
     $('#downtowninfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#downtowninfo').find('.landmark-info').height();
@@ -112,23 +118,23 @@ function show_play_icons() {
 
 
     position = $('#bigballoonarea')[0].getBoundingClientRect();;
-    positionleft = position.left - (5 * position.left)/100;
-    positiontop = position.top - (4 * position.top)/100;
+    positionleft = position.left + scrollX - (5 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY - (6 * (position.top+scrollY))/100;
     $('#balloonplay').offset({left: positionleft, top: positiontop}).show();
 
     position = $('#rollercoasterpath')[0].getBoundingClientRect();;
-    positionleft = position.left - (15 * position.left)/100;
-    positiontop = position.top - (4 * position.top)/100;
+    positionleft = position.left + scrollX - (15 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY - (5 * (position.top+scrollY))/100;
     $('#coasterplay').offset({left: positionleft, top: positiontop}).show();
 
     position = $('#disneycastle')[0].getBoundingClientRect();;
-    positionleft = position.left - (25 * position.left)/100;
-    positiontop = position.top + (8 * position.top)/100;
+    positionleft = position.left + scrollX - (25 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY + (8 * (position.top+scrollY))/100;
     $('#disneyplay').offset({left: positionleft, top: positiontop}).show();
 
     position = $('#orlandoeyebackground')[0].getBoundingClientRect();;
-    positionleft = position.left + (15 * position.left)/100;
-    positiontop = position.top - (1 * position.top)/100;
+    positionleft = position.left + scrollX + (15 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY - (1 * (position.top+scrollY))/100;
     $('#orlandoeyeinfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#orlandoeyeinfo').find('.landmark-info').height();
@@ -137,8 +143,8 @@ function show_play_icons() {
     $('#orlandoeyeinfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
     position = $('#kayakbackground')[0].getBoundingClientRect();;
-    positionleft = position.left + (30 * position.left)/100;
-    positiontop = position.top + (3 * position.top)/100;
+    positionleft = position.left + scrollX + (30 * (position.left+scrollX))/100;
+    positiontop = position.top + scrollY + (3 * (position.top+scrollY))/100;
     $('#kayakinfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#kayakinfo').find('.landmark-info').height();

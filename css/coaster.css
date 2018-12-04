@@ -6,6 +6,11 @@ svg {
     height: 100vh;
 }
 
+.hvr-float-shadow:before {
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
 .toolbar__score {
     width: 175px;
 }
@@ -116,8 +121,14 @@ svg {
     }
 }
 
-.coaster-super-slow {
+
+
+/*.coaster-super-slow {
     animation: move-coaster-slow 75s linear forwards;
+}*/
+
+.coaster-super-slow {
+    animation: move-coaster-slow 80s linear forwards;
 }
 
 @keyframes move-coaster-slow {

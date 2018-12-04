@@ -45,7 +45,7 @@ body {
 /*** Cloud Animation ***/
 .cloud {
     position: absolute;
-    right: -100px;
+    right: -20vw;
     opacity: 0;
     z-index: 500;
     animation: move-cloud linear infinite;
@@ -103,7 +103,7 @@ body {
     transform: scale(1.4);
   }
   100% {
-    transform: translateX(-105vw) scale(1.4);
+    transform: translateX(-130vw) scale(1.4);
     opacity: 1;
   }
 }
@@ -149,15 +149,12 @@ body {
 
 .button {
   display: block;
-  background-color: transparent;
+  background-color: #fff;
   width: 75px;
-  border: 3px solid rgba(255,255,255,0.8);
-  border-radius: 10px;
   font-size: 24px;
   padding: 0.1em 0.4em 0.2em 0.4em;
   margin: 0 auto;
   text-align: center;
-  transition: all 0.5s;
   cursor: pointer;
 }
 

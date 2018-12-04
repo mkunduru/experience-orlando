@@ -36,14 +36,13 @@ svg {
     position: absolute;
     left: 30vw;
     top: 18vh;
-    height: 55vh;
-    z-index: 600;
+    height: 500px;
+    z-index: 1000;
 }
 
 .instruction-balloon svg {
     width: 40vw;
     height: 40vh;
-    padding-top: 10vh;
 }
 
 .instruction-collect {
@@ -113,7 +112,7 @@ svg {
     height: 150px;
     width: 150px;
     position: absolute;
-    bottom: 10%;
+    bottom: 70%;
     left: 45%;
 }
 
@@ -196,56 +195,56 @@ svg {
 
 .cloud2 {
     left: 60%;
-    width: 200px;
+    width: 250px;
     animation-duration: 13s;
     animation-delay: 11;
 }
 
 .cloud3 {
     left: 15%;
-    width: 250px;
+    width: 300px;
     animation-duration: 13s;
     animation-delay: 3s;
 }
 
 .cloud4 {
     left: 45%;
-    width: 225px;
+    width: 275px;
     animation-duration: 13s;
     animation-delay: 8s;
 }
 
 .cloud5 {
     left: 85%;
-    width: 150px;
+    width: 200px;
     animation-duration: 18s;
     animation-delay: 11s;
 }
 
 .cloud6 {
     left: 30%;
-    width: 175px;
+    width: 225px;
     animation-duration: 19s;
     animation-delay: 9s;
 }
 
 .cloud7 {
     left: 10%;
-    width: 80px;
+    width: 130px;
     animation-duration: 13s;
     animation-delay: -4s;
 }
 
 .cloud8 {
     left: 40%;
-    width: 105px;
+    width: 155px;
     animation-duration: 21s;
     animation-delay: 9s;
 }
 
 .cloud9 {
     left: 70%;
-    width: 200px;
+    width: 250px;
     animation-duration: 13s;
     animation-delay: 0;
 }
@@ -359,16 +358,19 @@ Animations
 
 @keyframes landing-balloon {
     0% {
-        transform: translate(0, 0);
+        transform: translate(0, 50px);
     }
     25% {
-        transform: translate(0, -100px);
+        transform: translate(0, -50px);
     }
     50% {
-        transform: translate(0, 0);
+        transform: translate(0, 50px);
     }
     75% {
-        transform: translate(100px, 0);
+        transform: translate(100px, 50px);
+    }
+    100% {
+        transform: translate(0, 50px);
     }
 }
 

@@ -24,7 +24,7 @@ body {
 }
 
 .title {
-	font-family: 'Raleway Thin', cursive;
+	font-family: 'Raleway Light', cursive;
     font-size: 28px;
     margin-top: 0;
     margin-bottom: 4em;
@@ -32,17 +32,6 @@ body {
 
 .intro-button {
     background-color: #FF811e;
-    font-family: 'Raleway ExtraLight';
-    font-size: 24px;
-    letter-spacing: 0.5px;
-    padding: 0.65em 1em 0.8em 1em;
-    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
-    transition: all 0.5s;
-    border-radius: 10px;
-}
-
-.intro-button:hover {
-    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
 }
 
 
@@ -73,15 +62,6 @@ body {
 		height: 28vh;
 		margin-top: 15vh;
 	}
-
-	.intro-button {
-	    font-size: 21px;
-	    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
-	}
-
-	.intro-button:hover {
-	    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
-	}
 }
 
 @media only screen and (max-width: 1024px) {
@@ -105,15 +85,6 @@ body {
 	.title {
 		font-size: 18px;
 		margin-bottom: 50px;
-	}
-
-	.intro-button {
-	    font-size: 18px;
-	    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
-	}
-
-	.intro-button:hover {
-	    box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
 	}
 }
 

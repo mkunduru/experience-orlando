@@ -9,6 +9,7 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/hover-min.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/game.css">
@@ -16,8 +17,11 @@
     </head>
     <body>
         <div class="instruction-overlay">
+            <div class="back">
+                <a><img src="img/backarrow.svg"></a>
+            </div>
             <div class="page-title">
-                <p>How To Play</p>
+                <p>Instructions</p>
             </div>
             <div class="instruction-balloonkeys">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 253.6 166.2" style="enable-background:new 0 0 253.6 166.2;" xml:space="preserve">
@@ -330,13 +334,13 @@
                 </svg>
 
             </div>
-            <div id="play" class="button">
+            <div id="play" class="button hvr-float-shadow">
                 <a>Start Game</a>
             </div>
         </div>
         <div class="result-overlay">
             <h1 class="result">Game Over</h1>
-            <p class="final-score">Your Score : <span class="final_points"></span>
+            <!-- <p class="final-score">Your Score : <span class="final_points"></span> -->
             <div class="character">
                 <img class="winner" src="img/games/winner.svg">
                 <img class="loser" src="img/games/loser.svg">

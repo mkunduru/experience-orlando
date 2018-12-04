@@ -19,14 +19,17 @@ h1 {
 }
 
 h4 {
-    font-family: 'Raleway ExtraLight', sans-serif;
+    font-family: 'Raleway Regular', sans-serif;
     font-size: 36px;
-    margin-top: 0;
+    margin: 0 auto;
+    margin-top: -40px;
     text-align: left;
+    letter-spacing: 1px;
 }
 
 h5 {
     font-size: 18px;
+    line-height: 26px;
     letter-spacing: 1px;
     cursor: pointer;
     margin: 1em auto 0 auto;
@@ -41,14 +44,6 @@ h5 {
     height: 35vh;
     background-color: orange;
     display: flex;
-}
-
-.back {
-    position: absolute;
-    top: 3%;
-    left: 2%;
-    z-index: 1000;
-    width: 30px;
 }
 
 .subtitle {
@@ -68,29 +63,41 @@ h5 {
 
 .landing-button {
     display: inline-block;
-    font-family: 'Raleway ExtraLight';
+    /*font-family: 'Raleway ExtraLight';*/
     margin-top: 30px;
     font-size: 24px;
     background-color: #F44336;
     padding: 0.65em 1.4em 0.8em 1.4em;
-    box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
-    letter-spacing: 0.5px;
-    transition: all 0.5s;
+    /*letter-spacing: 0.5px;*/
+    /*box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+    transition: all 0.5s;*/
     border-radius: 10px;
 }
 
-.landing-button:hover {
+/*.landing-button:hover {
     box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+}*/
+
+.hvr-underline-from-center:before {
+    background: #fff;
+    height: 2px;
 }
 
 .minigames {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    /*margin-left: 100px;*/
     font-size: 21px;
-    width: 950px;
+    width: 700px;
+}
+
+.minigames-desc {
+    position: absolute;
+    left: -375px;
 }
 
 .minigame {
@@ -234,6 +241,7 @@ h5 {
 
 	h5 {
 	    font-size: 16px;
+        line-height: 24px;
 	}
 
 	.subtitle {
@@ -242,8 +250,8 @@ h5 {
 
 	.desc {
 	    font-size: 22px;
-	    line-height: 36px;
-	    width: 750px;
+	    line-height: 34px;
+	    width: 700px;
 	    margin: 1.5em auto 0 auto;
 	}
 
@@ -254,12 +262,16 @@ h5 {
 
 	.minigames {
 	    font-size: 21px;
-	    width: 800px;
+	    width: 600px;
 	}
 
+    .minigames-desc {
+        left: -300px;
+    }
+
 	.minigame {
-	    width: 125px;
-	    height: 125px;
+	    width: 140px;
+	    height: 140px;
 	}
 
 	.coaster {

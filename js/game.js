@@ -1,6 +1,7 @@
 var idle = false;
 var game_level = 0;
 var level_timer = 0;
+var in_game = false;
 
 /* ==========================================================================
    Initialize functions.
@@ -23,11 +24,15 @@ $(document).ready(function(){
     $('.toolbar__exit').on('click', function(){
       game_over();
     });
+
+    $('.back').on('click', function(){
+      window.history.back();
+    });
 });
 
 function start_game() {
+  reset_toolbar();
 	hide_overlays();
-	reset_toolbar();
 	initialize_game(1);
   score = 0;
   insert_score_html(score);
@@ -73,6 +78,7 @@ function show_instruction() {
 function initialize_game(level) {
     game_level = level;
     if(level < 4) {
+        in_game = true;
         play_level(level);
     }
     else {
@@ -82,9 +88,9 @@ function initialize_game(level) {
 
 function play_level(level) {
     clean_slate();
+    reset_timer();
     set_game_level();
     setup_level(level);
-    reset_timer();
 }
 
 
@@ -204,6 +210,7 @@ function game_winner() {
 }
 
 function game_over() {
+  in_game = false;
   update_result_message("Game Over");
   show_loser();
   show_results();

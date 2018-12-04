@@ -293,7 +293,9 @@ function checkCollision() {
             if(score >= game_level_score) {
               clear_gifts();
               setTimeout(function(){
-                announce_level_up(game_level + 1);
+                if(in_game){
+                  announce_level_up(game_level+1);
+                }
               }, 750);
               
               //initialize_game(game_level + 1);
@@ -333,6 +335,8 @@ function clean_slate() {
     gift_timeouts = [];
     keys = {};
     $("#balloon").removeClass('blink');
+    $("#balloon").css('top', '70%');
+    $("#balloon").css('left', '50%');
 }
 
 function clear_gifts() {

@@ -9,7 +9,7 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
+        <link rel="stylesheet" href="css/hover-min.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/game.css">
@@ -21,6 +21,9 @@
         <![endif]-->
 
         <div class="instruction-overlay">
+            <div class="back">
+                <a><img src="img/backarrow.svg"></a>
+            </div>
             <div class="page-title">
                 <p>How To Play</p>
             </div>
@@ -231,22 +234,22 @@
                         c1-0.6,1.3-1.8,0.7-2.7C3062.2-1202.2,3061.3-1202.4,3060.3-1201.9z"/>
                 </g>
             </svg>
-            <div id="play" class="button">
+            <div id="play" class="button hvr-float-shadow">
                 <a>Start Game</a>
             </div>
         </div>
         <div class="result-overlay">
             <h1 class="result">Game Over</h1>
-            <p class="final-score">Your Score : <span class="final-points"></span>
+            <!-- <p class="final-score">Your Score : <span class="final-points"></span> -->
             <div class="character">
                 <img class="winner" src="img/games/winner.svg">
                 <img class="loser" src="img/games/loser.svg">
             </div>
             <div class="buttons">
                 <ul>
-                    <li><a class="button play_again">Play again</a></li>
-                    <li><a class="button" href="city.html">Explore city</a></li>
-                    <li><a class="button" href="landing.html">More games</a></li>
+                    <li><a class="button hvr-float-shadow play_again">Play again</a></li>
+                    <li><a class="button hvr-float-shadow" href="city.html">Explore city</a></li>
+                    <li><a class="button hvr-float-shadow" href="landing.html">More games</a></li>
                 </ul>
             </div>
         </div>

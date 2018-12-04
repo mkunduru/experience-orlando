@@ -129,11 +129,14 @@ function check_open_windows() {
     check_game_progress();
 }
 
+
 function check_game_progress() {
     if($('.window:not(.window--locked):not(.matched)').length == 0) {
         setTimeout(function(){
-          announce_level_up(game_level+1);
-          update_score_level();
+          if(in_game){
+            announce_level_up(game_level+1);
+            update_score_level();
+          }
         }, 750);
     }
 }

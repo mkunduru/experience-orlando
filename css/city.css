@@ -11,14 +11,6 @@ body {
     cursor: pointer;
 }
 
-.back {
-    position: absolute;
-    top: 3%;
-    left: 2%;
-    z-index: 1000;
-    width: 30px;
-}
-
 .flight{
     position: absolute;
     left: 0;
@@ -128,12 +120,6 @@ body {
     padding: 0.3em 1em 0.45em 1em;
     border-radius: 7px;
     letter-spacing: 1px;
-    box-shadow: -4px 5px 0 rgba(0,0,0,0.15);
-    transition: all 0.5s;
-}
-
-.play-button:hover {
-    box-shadow: -2px 3px 0 rgba(0,0,0,0.15);
 }
 
 h3 {
@@ -287,11 +273,11 @@ h3 {
 @keyframes bird-high {
     0% {
         opacity: 1;
-        transform: translate(-20vw, 0);
+        transform: translate(-30vw, 0);
     }
     35% {
         opacity: 1;
-        transform: translate(40vw, -40vh);
+        transform: translate(50vw, -30vh);
     }
     70% {
         opacity: 1;
@@ -309,75 +295,75 @@ h3 {
 
 @keyframes move-cloud-1 {
     0% {
-        transform: translateX(70vw);
+        transform: translateX(80vw);
     }
     100% {
-        transform: translateX(-30vw);
+        transform: translateX(-40vw);
     }
 }
 
 #c2 {
-  animation: move-cloud-2 60s linear forwards -24s infinite;  
+  animation: move-cloud-2 60s linear forwards -30s infinite;  
 }
 
 @keyframes move-cloud-2 {
     0% {
-        transform: translateX(50vw);
-    }
-    100% {
-        transform: translateX(-50vw);
-    }
-}
-
-#c3 {
-  animation: move-cloud-3 60s linear forwards -12s infinite;  
-}
-
-@keyframes move-cloud-3 {
-    0% {
-        transform: translateX(80vw);
-    }
-    100% {
-        transform: translateX(-20vw);
-    }
-}
-
-#c4 {
-  animation: move-cloud-4 60s linear forwards -48s infinite;  
-}
-
-@keyframes move-cloud-4 {
-    0% {
-        transform: translateX(20vw);
+        transform: translateX(40vw);
     }
     100% {
         transform: translateX(-80vw);
     }
 }
 
-#c5 {
-  animation: move-cloud-5 60s linear forwards -6s infinite;  
+#c3 {
+  animation: move-cloud-3 60s linear forwards -6s infinite;  
 }
 
-@keyframes move-cloud-5 {
+@keyframes move-cloud-3 {
     0% {
         transform: translateX(90vw);
     }
     100% {
-        transform: translateX(-10vw);
+        transform: translateX(-30vw);
+    }
+}
+
+#c4 {
+  animation: move-cloud-4 60s linear forwards -54s infinite;  
+}
+
+@keyframes move-cloud-4 {
+    0% {
+        transform: translateX(30vw);
+    }
+    100% {
+        transform: translateX(-90vw);
+    }
+}
+
+#c5 {
+  animation: move-cloud-5 60s linear forwards -22s infinite;  
+}
+
+@keyframes move-cloud-5 {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(-20vw);
     }
 }
 
 #c6 {
-  animation: move-cloud-6 60s linear forwards -40s infinite;
+  animation: move-cloud-6 60s linear forwards -58s infinite;
 }
 
 @keyframes move-cloud-6 {
     0% {
-        transform: translateX(50vw);
+        transform: translateX(60vw);
     }
     100% {
-        transform: translateX(-50vw);
+        transform: translateX(-60vw);
     }
 }
 
@@ -387,10 +373,10 @@ h3 {
 
 @keyframes move-cloud-7 {
     0% {
-        transform: translateX(30vw);
+        transform: translateX(40vw);
     }
     100% {
-        transform: translateX(-70vw);
+        transform: translateX(-80vw);
     }
 }
 
@@ -403,8 +389,6 @@ h3 {
     .play-button {
         font-size: 14px;
         padding: 0.3em 1em 0.45em 1em;
-        box-shadow: -3px 4px 0 rgba(0,0,0,0.15);
-        transition: all 0.5s;
     }
 
     .landmark-info {

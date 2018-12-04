@@ -178,9 +178,9 @@ function clean_slate() {
   	key_hit_rate = 0;
   	coaster_speed = 'medium';
   	$('.arrow-guide').removeClass('glow');
-  	// $('#coaster').removeClass('coaster-slow');
-  	// $('#coaster').removeClass('coaster-medium');
-  	// $('#coaster').removeClass('coaster-fast');
+  	$('#coaster').removeClass('coaster-slow');
+  	$('#coaster').removeClass('coaster-medium');
+  	$('#coaster').removeClass('coaster-fast');
   	document.getElementById("coaster").style.animationDelay = "0s";
   	// $('.coaster-medium').removeClass('paused');	
 }
@@ -263,7 +263,9 @@ function update_score() {
         clear_keys();
       }, 500);
       setTimeout(function(){
-        announce_level_up(game_level + 1);
+        if(in_game){
+          announce_level_up(game_level + 1);
+        }
       }, 750);
     }   
 }
@@ -359,14 +361,14 @@ function remove_vicinity_glow(direction) {
 function success_key(item) {	
   	$('.'+item.class).addClass('success');
   	key_hit_rate = key_hit_rate + 1;
-  	$('.coaster-medium').removeClass('paused');
-  	traintween.start();
+  	/*$('.coaster-medium').removeClass('paused');*/
+  	/*traintween.start();*/
 }
 
 function failure_key(item) {	
   	$('.'+item.class).addClass('failure');
-  	$('.coaster-medium').addClass('paused');
-  	traintween.stop();
+  	/*$('.coaster-medium').addClass('paused');*/
+  	/*traintween.stop();*/
 }
 
 /* ==========================================================================
@@ -375,8 +377,15 @@ function failure_key(item) {
 function start_coaster() {
       Main();
       // setTimeout(function(){
-      //   $('#coaster').addClass('coaster-medium');
+      //   $('#coaster').addClass('coaster-super-slow');
+      // }, 2750);
+
+      // setTimeout(function(){
+      //   $('.coaster-super-slow').css("animation-duration", "40s");
       // }, 4000);
+      setTimeout(function(){
+        $('#coaster').addClass('coaster-medium');
+      }, 4000);
    }
 
    function stop_coaster() {
@@ -384,7 +393,6 @@ function start_coaster() {
    }
    
     function Main() {
-        console.log("Initializing the coaster");
         vars();
         launchTrains();
         animate();
@@ -411,58 +419,16 @@ function start_coaster() {
     launchTrains = function() {
       var it;
       it = this;
-      var timePrev = Date.now();
       var timeJustPrev = Date.now();
+      /*var speed = 35000;*/
       var speed = 50000;
       totallength = this.train1.path.getTotalLength();
-      local_speed = 'medium';
-      distance_covered = 0;
-      //duration = totallength * 100 / 28.6 ;
-      //console.log(duration);
       traintween = new TWEEN.Tween({
         length: totallength
       }).to({
         length: 0
       /*}, 8000).onUpdate(function() {*/
       }, speed).onUpdate(function() {	
-          // if(local_speed != coaster_speed){
-          //   traintween.stop();
-          //   var timeNow = Date.now();
-          //   var timeDiff = timeNow - timePrev;
-          //   var currenttimeDiff = timeNow - timeJustPrev;
-          //   currentDistance = get_current_distance(currenttimeDiff, local_speed);
-          //   distance_covered = distance_covered + currentDistance;
-
-          //   //console.log("speed change timediff: "+timeDiff);
-          //   //console.log("distance covered: "+distance_covered);
-
-            
-          //   if(coaster_speed == 'slow') {
-          //      traintween.to({length: 0}, 60000);
-          //      $('#coaster').removeClass('coaster-medium').removeClass('coaster-fast').addClass('coaster-slow');
-          //      delay = 60000 * distance_covered/1000 - 3;
-          //      console.log("delay: "+delay);
-          //      document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
-          //   }
-          //   else if(coaster_speed == 'medium') {
-          //      traintween.to({length: 0}, 45000);
-          //      $('#coaster').removeClass('coaster-slow').removeClass('coaster-fast').addClass('coaster-medium');
-          //      delay = 45000 * distance_covered/1000;
-          //      console.log("delay: "+delay);
-          //      document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
-          //   }
-          //   else if(coaster_speed == 'fast') {
-          //      traintween.to({length: 0}, 30000);
-          //      $('#coaster').removeClass('coaster-slow').removeClass('coaster-medium').addClass('coaster-fast');
-          //      delay = 30000 * distance_covered/1000 - 3;
-          //      console.log("delay: "+delay);
-          //      document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
-          //   }
-
-          //   timeJustPrev = timeNow;
-          //   local_speed = coaster_speed;
-          //   traintween.start();
-          // }
           var angle, attr, cabin, cabinChild, i, point, prevPoint, shift, x, x1, x2, y, _i, _len, _ref, _results;
           _ref = it.train1.cabins;
           _results = [];
@@ -483,18 +449,19 @@ function start_coaster() {
                   cabinChild = cabin[it.childMethod][it.childNode];
                   cabinChild.setAttribute('xlink:href', '#coasterreverse');
                   cabin.isRotated = true;
-                  traintween.stop();
-                  traintween.to({length: 0}, 35000);
-                  traintween.start();
+                  // traintween.stop();
+                  // traintween.to({length: 0}, 22500);
+                  // traintween.start();
                 }
               } else {
                 if (cabin.isRotated) {
                   cabinChild = cabin[it.childMethod][it.childNode];
                   cabinChild.setAttribute('xlink:href', '#coasterforward');
                   cabin.isRotated = false;
-                  traintween.stop();
-                  traintween.to({length: 0}, 45000);
-                  traintween.start();
+                  // console.log("Setting speed to 37500");
+                  // traintween.stop();
+                  // traintween.to({length: 0}, 35000);
+                  // traintween.start();
                 }
 
               }
@@ -509,7 +476,7 @@ function start_coaster() {
   
     animate = function() {
         requestAnimationFrame(this.animate);
-        move_track();
+        //move_track();
         return TWEEN.update();
     };
 
@@ -538,43 +505,19 @@ function start_coaster() {
 // 	}
 // }
 
-var check_screen_shift = true;
-var initial_screen_shift = true;
-function move_track() {
-	if(check_screen_shift) {
-		setTimeout(function(){
-			$('#coaster').addClass('coaster-medium');
-		}, 4000);
-		// check_screen_shift = false;
-		// var center = $(window).width()/2 + 200;
-		// var position = $('#js-train-cabin1').position();
-		// var left = position.left;
-		// console.log("center: "+center+ ", left: "+left);
-		// if(left > center) {
-		// 	console.log("Start the screen shift");
-		// 	$('#coaster').removeClass('paused');
-		// 	if(initial_screen_shift) {
-		// 		$('#coaster').addClass('coaster-slow');
-		// 	}
-		// }
-		// else {
-		// 	$('#coaster').addClass('paused');
-		// }
 
-		// setTimeout(function(){
-		// 	check_screen_shift = true;
-		// }, 500);
-	}
-}
 
 function get_current_distance(time, speed) {
   if(speed == 'slow'){
     return time / 60000;
   }
   else if(speed == 'medium') {
-    return time / 45000;
+    return time / 40000;
   }
   else if(speed == 'fast') {
     return time/30000;
+  }
+  else if(speed == 'super-slow') {
+    return time/75000;
   }
 }
