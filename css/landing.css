@@ -287,8 +287,38 @@ h5 {
 	}
 }
 
-@media only screen and (max-width: 1224px) {
-	
+@media only screen and (max-width: 1280px) {
+	h1 {
+        font-size: 108px;
+        line-height: 108px;
+        padding-top: 75px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    h5 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .desc {
+        font-size: 18px;
+        line-height: 30px;
+        width: 700px;
+        margin: 1.5em auto 0 auto;
+    }
+
+    .minigames {
+        font-size: 18px;
+        width: 500px;
+    }
+
+    .minigame {
+        width: 125px;
+        height: 125px;
+    }
 }
 
 @media only screen and (max-width: 1024px) {

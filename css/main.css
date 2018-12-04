@@ -275,9 +275,14 @@ h1.result {
     
 }
 
-@media only screen and (max-width: 1224px) {
+@media only screen and (max-width: 1280px) {
     .button {
         font-size: 21px;
+    }
+
+    h1.result {
+        font-size: 60px;
+        margin-top: 10px;
     }
 }
 

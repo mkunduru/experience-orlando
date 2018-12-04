@@ -3,6 +3,8 @@
     top: 80vh;
     left: 0;
     right: 0;
+    z-index: 2000;
+    text-align: center;
     margin: auto;
     background-color: #FF1744; 
     font-family: 'Raleway Regular';
@@ -265,7 +267,7 @@
     }
 }
 
-@media only screen and (max-width: 1224px) {
+@media only screen and (max-width: 1280px) {
     .toolbar {
         height: 60px;
     }
@@ -299,6 +301,12 @@
 
     .result-overlay {
         padding-top: 60px;
+    }
+
+    .winner, .loser {
+        width: 200px;
+        margin-bottom: 25px;
+        margin-top: 25px;
     }
 }
 
