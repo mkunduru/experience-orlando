@@ -37,12 +37,12 @@ h5 {
 
 .top-fold {
     height: 65vh;
-    background-color: #ffc107;
+    background-color: #99c955;
 }
 
 .bottom-fold {
     height: 35vh;
-    background-color: orange;
+    background-color: #f9ab3d;
     display: flex;
 }
 
@@ -114,6 +114,7 @@ h5 {
 
 .minigame-section {
     cursor: pointer;
+    padding-top: 25px;
 }
 
 .minigame:hover {
