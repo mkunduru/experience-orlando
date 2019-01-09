@@ -41,7 +41,8 @@ svg {
     top: 0;
     left: 0;
     z-index: 60;
-    width: 30vw;
+    /*width: 30vw;*/
+    width: 400px;
     height: 100vh;
     background-color: #1A1A1A;
     display: none;
@@ -49,20 +50,25 @@ svg {
 
 .key-guide {
     position: absolute;
-    left: 1vw;
+    /*left: 1vw;*/
+    left: 10px;
     display: flex;
-    z-index: 300;
+    z-index: 350;
     top: 40vh;
 }
 
 .arrow-guide {
     width: 5vw;
+    width: 75px;
     margin-right: 1vw;
     margin-left: 1vw;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .arrow-guide svg {
-    height: 10vh;
+    width: 75px;
+    height: 75px;
 }
 
 .arrow-guide.glow circle {
@@ -74,11 +80,12 @@ svg {
     position: absolute;
     z-index: 200;
     width: 5vw;
-    top: 110vh;
+    width: 75px;
+    top: 100vh;
 }
 
 .key svg {
-    height: 10vh;
+    height: 75px;
 }
 
 .key.success circle {
@@ -90,22 +97,22 @@ svg {
 }
 
 .key--up {
-    left: 9vw;
+    left: 115px;
     animation: move-arrow 8s linear forwards;
 }
 
 .key--down {
-    left: 16vw;
+    left: 210px;
     animation: move-arrow 8s linear forwards;
 }
 
 .key--left {
-    left: 2vw;
+    left: 20px;
     animation: move-arrow 8s linear forwards;
 }
 
 .key--right {
-    left: 23vw;
+    left: 305px;
     animation: move-arrow 8s linear forwards;
 }
 

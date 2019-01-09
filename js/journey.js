@@ -12,14 +12,6 @@ $(document).ready(function() {
       window.location.href = "landing.html";
     }, 4800);
   });
-
-  // $('.button').hover(function(){
-  //   $('.button').css("background", "#FFFFFF");
-  //   $('#next-arrow').css("stroke", "#46c6e5");
-  // }, function(){
-  //   $('.button').css("background", "transparent");
-  //   $('#next-arrow').css("stroke", "#FFFFFF");
-  // });
 });
 
 function show_bio() {

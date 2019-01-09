@@ -479,8 +479,15 @@
                 <div class="cloud cloud5"><img src="img/games/balloon/clouds/cloud5.svg"></div>
                 <div class="cloud cloud6"><img src="img/games/balloon/clouds/cloud6.svg"></div>
             </div>
-            <div id="balloon"><img src="img/games/balloon/hotairballoon.svg"></div>
+            <div id="balloon">
+                <img id="full-balloon" src="img/games/balloon/hotairballoon.svg">
+                <img id="blast-balloon" src="img/games/balloon/hotairballoonblast.svg">
+            </div>
         </div>
+        <iframe src="sounds/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio id="background-sound" loop>
+            <source src="sounds/background.mp3" type="audio/mp3">
+        </audio>
     </body>
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

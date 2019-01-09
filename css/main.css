@@ -183,6 +183,18 @@ h1.result {
     cursor: pointer;
 }
 
+.propeller {
+  animation: rotate-propeller 0.25s linear infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+
+@keyframes rotate-propeller {
+  100% {
+    transform: rotate3d(1, 0, 0, 360deg);
+  }
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

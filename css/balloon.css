@@ -116,6 +116,10 @@ svg {
     left: 45%;
 }
 
+#blast-balloon {
+    display: none;
+}
+
 .gift {
     color: #fff;
     font-size: 36px;

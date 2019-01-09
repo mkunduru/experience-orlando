@@ -1,24 +1,22 @@
 var fired = false;
 var idle = true;
-var open_window_timeout = 0;
-var start_key_timeout = 0;
 var game_level_timer = 30;
-var timer_id;
-var interval_flag;
-var score = 0;
 var game_level_score = 0;
-var traintween = {stop: function(){return true;}};
+var interval_flag;
+var timer_id;
 var started_keys = [];
 var keys_in_zone = [];
-var key_height = 0;
-var coaster_speed = 'medium';
 var key_hit_rate = 0;
+var score = 0;
+var key_height = 0;
 var key_offsets = {
   left: {top: 0, bottom: 0},
   right: {top: 0, bottom: 0},
   up: {top: 0, bottom: 0},
   down: {top: 0, bottom: 0}
 };
+var traintween = {stop: function(){return true;}};
+var coaster_speed = 'medium';
 
 $(document).ready(function(){
    $("#play").on('click', function(){
@@ -31,25 +29,21 @@ $(document).ready(function(){
       if(!fired) {
           if (e.which == 37) {
               idle = false;
-              idleSecondsCounter = 0;
               fired = true;
               check_key("left");
           }
           else if (e.which == 38) {
               idle = false;
-              idleSecondsCounter = 0;
               fired = true;
               check_key("up");
           }
           else if (e.which == 39) {
               idle = false;
-              idleSecondsCounter = 0;
               fired = true;
               check_key("right");
           }
           else if (e.which == 40) {
               idle = false;
-              idleSecondsCounter = 0;
               fired = true;
               check_key("down");
           }
@@ -135,7 +129,7 @@ var key_right = {
 };
 
 var level1 = {
-  count: 15,
+  count: 18,
   score: 1000,
   keys: function() {
              return get_keys(this.count);
@@ -143,16 +137,16 @@ var level1 = {
 };
 
 var level2 = { 
-  count: 25,
-  score: 2800,
+  count: 24,
+  score: 2500,
   keys: function() {
             return get_keys(this.count);
          }
 }
 
 var level3 = {
-  count: 35,
-  score: 5000,
+  count: 30,
+  score: 4000,
   keys: function() {
            return get_keys(this.count);
          }
@@ -163,26 +157,25 @@ var level3 = {
    ========================================================================== */
 
 function clean_slate() {
- 	clear_keys();
-  	game_level_score = 0;
-  	forward = 0;
-  	clearTimeout(start_key_timeout);
-  	if(traintween) {
-    	traintween.stop();
-  	}
-  	clearInterval(interval_flag);
-  	clearInterval(timer_id);
-  	started_keys = [];
-  	keys_in_zone = [];
-  	stop_coaster();
-  	key_hit_rate = 0;
-  	coaster_speed = 'medium';
-  	$('.arrow-guide').removeClass('glow');
-  	$('#coaster').removeClass('coaster-slow');
-  	$('#coaster').removeClass('coaster-medium');
-  	$('#coaster').removeClass('coaster-fast');
-  	document.getElementById("coaster").style.animationDelay = "0s";
-  	// $('.coaster-medium').removeClass('paused');	
+  clear_keys();
+  game_level_score = 0;
+  if(traintween) {
+    traintween.stop();
+  }
+  clearInterval(interval_flag);
+  started_keys = [];
+  keys_in_zone = [];
+  stop_coaster();
+  key_hit_rate = 0;
+  coaster_speed = 'medium';
+  $('.arrow-guide').removeClass('glow');
+  $('#coaster').removeClass('coaster-slow').removeClass('paused');
+  $('#coaster').removeClass('coaster-medium').removeClass('paused');
+  $('#coaster').removeClass('coaster-fast').removeClass('paused');
+  document.getElementById("coaster").style.animationDelay = "0s";  
+  var cabin = $('#js-train-cabin2').children('use');
+  cabin.attr('xlink:href', '#coasterforward');
+  cabin.css({'transform': 'translate(0, 0)'});
 }
 
 function clear_keys() {
@@ -191,7 +184,7 @@ function clear_keys() {
 
 function get_keys(count) {
     var level_keys = [];
-    for(i=0; i< count; i++) {
+    for(i=0; i< count/3; i++) {
       level_keys.push(Object.create(key_up));
       level_keys.push(Object.create(key_down));
       level_keys.push(Object.create(key_left));
@@ -201,10 +194,8 @@ function get_keys(count) {
 };
 
 function start_level(keys) {
-  //Main();
   var key_set = shuffle(keys);
   var interval = game_level_timer / key_set.length;
-  var keys_processed = -3;
   interval_flag = setInterval(function(){
     if(key_set.length == 0) {
       clearInterval(interval_flag);
@@ -215,22 +206,11 @@ function start_level(keys) {
       item.html().insertAfter('.first-key');
       
       started_keys.push(item);
-      keys_processed = keys_processed + 1;
-      if(keys_processed == 5) {
-        set_key_hits();
-        keys_processed = 0;
-      }
     }
   }, interval * 1000);
 }
 
-function set_key_hits() {
-  key_hit_rate = 0;
-}
-
 function show_results() {
-  clearInterval(timer_id);
-  clearTimeout(open_window_timeout);
   idle=false;
   remove_toolbar_exit();
   $('.result-overlay').find('.final_points').text($('.toolbar__score__value').text());
@@ -308,7 +288,6 @@ function check_key_progress() {
       add_vicinity_glow(item.target);
       keys_in_zone.push(item);
     }
-    //Pop out the key if it triggered 
   }
 }
 
@@ -358,166 +337,218 @@ function remove_vicinity_glow(direction) {
   }
 }
 
-function success_key(item) {	
-  	$('.'+item.class).addClass('success');
-  	key_hit_rate = key_hit_rate + 1;
-  	/*$('.coaster-medium').removeClass('paused');*/
-  	/*traintween.start();*/
+function success_key(item) {  
+    $('.'+item.class).addClass('success');
+    if(key_hit_rate == -2) {
+      $('.coaster-slow').removeClass('paused');
+      var cabin = $('#js-train-cabin2').children('use');
+      if(cabin.attr('xlink:href') == '#coasterforwardblast') {
+        cabin.attr('xlink:href', '#coasterforward');
+        cabin.css({'transform': 'translate(0, 0)'});
+      }
+      else if(cabin.attr('xlink:href') == '#coasterreverseblast') {
+        cabin.attr('xlink:href', '#coasterreverse');
+        cabin.css({'transform': 'translate(0, 0)'});
+      }
+      traintween.start();
+    }
+    key_hit_rate = 0;
 }
 
-function failure_key(item) {	
-  	$('.'+item.class).addClass('failure');
-  	/*$('.coaster-medium').addClass('paused');*/
-  	/*traintween.stop();*/
+function failure_key(item) {  
+    $('.'+item.class).addClass('failure');
+    if(key_hit_rate == -2) {
+      if(!$('.coaster-slow').hasClass('paused')) {
+        $("#crash-sound").trigger("play");
+        $("#crash-sound").prop("volume", ".5");
+        $('.coaster-slow').addClass('paused');
+        setTimeout(function(){
+          traintween.stop();
+          var cabin = $('#js-train-cabin2').children('use');
+          if(cabin.attr('xlink:href') == '#coasterforward') {
+            cabin.attr('xlink:href', '#coasterforwardblast');
+            cabin.css({'transform': 'translate(-45px, -55px)'});
+          }
+          else if(cabin.attr('xlink:href') == '#coasterreverse') {
+            cabin.attr('xlink:href', '#coasterreverseblast');
+            cabin.css({'transform': 'translate(-45px, -55px)'});
+          }
+        }, 1000);
+      }
+    }
+    else {
+      key_hit_rate = key_hit_rate - 1;
+    }
 }
 
 /* ==========================================================================
    Roller Coaster 
    ========================================================================== */
+
 function start_coaster() {
-      Main();
-      // setTimeout(function(){
-      //   $('#coaster').addClass('coaster-super-slow');
-      // }, 2750);
+    Main();
+    setTimeout(function(){
+      $('#coaster').addClass('coaster-slow');
+    }, 4500);
+}
 
-      // setTimeout(function(){
-      //   $('.coaster-super-slow').css("animation-duration", "40s");
-      // }, 4000);
-      setTimeout(function(){
-        $('#coaster').addClass('coaster-medium');
-      }, 4000);
-   }
+function stop_coaster() {
+    traintween.stop();
+}
 
-   function stop_coaster() {
-      traintween.stop();
-   }
-   
-    function Main() {
-        vars();
-        launchTrains();
-        animate();
-    }
+function Main() {
+    vars();
+    launchTrains();
+    animate();
+}
 
-    vars = function() {
-      var cabin, i, _i, _j;
-      this.train1 = {
-        cabins: [],
-        background: document.getElementById('coaster'),
-        path: document.getElementById('cabinpath')
-      };
-      for (i = _i = 1; _i <= 3; i = ++_i) {
-        if (cabin = document.getElementById("js-train-cabin" + i)) {
-          this.train1.cabins.push(cabin);
-        }
+vars = function() {
+    var cabin, i, _i, _j;
+    this.train1 = {
+      cabins: [],
+      background: document.getElementById('coaster'),
+      path: document.getElementById('cabinpath')
+    };
+    for (i = _i = 1; _i <= 3; i = ++_i) {
+      if (cabin = document.getElementById("js-train-cabin" + i)) {
+        this.train1.cabins.push(cabin);
       }
-      this.cabinWidth = 1 * this.train1.cabins[0].getBoundingClientRect().width;
-      this.childNode = 0;
-      this.childMethod = 'children';
-      return this.animate = this.bind(this.animate, this);
-    };
+    }
+    this.cabinWidth = 1 * this.train1.cabins[0].getBoundingClientRect().width;
+    this.childNode = 0;
+    this.childMethod = 'children';
+    return this.animate = this.bind(this.animate, this);
+};
+
+launchTrains = function() {
+  var it;
+  it = this;
+  var timeJustPrev = Date.now();
+  /*var speed = 35000;*/
+  var speed = 50000;
+  totallength = this.train1.path.getTotalLength();
+  traintween = new TWEEN.Tween({
+    length: totallength
+  }).to({
+    length: 0
+  /*}, 8000).onUpdate(function() {*/
+  }, speed).onUpdate(function() { 
+      keep_coaster_on_screen(it);
+      var angle, attr, cabin, cabinChild, i, point, prevPoint, shift, x, x1, x2, y, _i, _len, _ref, _results;
+      _ref = it.train1.cabins;
+      _results = [];
+
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        cabin = _ref[i];
+        shift = i * it.cabinWidth;
     
-    launchTrains = function() {
-      var it;
-      it = this;
-      var timeJustPrev = Date.now();
-      /*var speed = 35000;*/
-      var speed = 50000;
-      totallength = this.train1.path.getTotalLength();
-      traintween = new TWEEN.Tween({
-        length: totallength
-      }).to({
-        length: 0
-      /*}, 8000).onUpdate(function() {*/
-      }, speed).onUpdate(function() {	
-          var angle, attr, cabin, cabinChild, i, point, prevPoint, shift, x, x1, x2, y, _i, _len, _ref, _results;
-          _ref = it.train1.cabins;
-          _results = [];
+          point = it.train1.path.getPointAtLength(this.length - shift);
+          prevPoint = it.train1.path.getPointAtLength(this.length - shift - 1);
+          x1 = point.y - prevPoint.y;
+          x2 = point.x - prevPoint.x;
+          angle = Math.atan(x1 / x2) * (180 / Math.PI);
+          x = point.x - 35;
+          y = point.y - 35;
+          if (point.x - prevPoint.x > 0) {
+            if (!cabin.isRotated) {
+              cabinChild = cabin[it.childMethod][it.childNode];
+              cabinChild.setAttribute('xlink:href', '#coasterreverse');
+              cabin.isRotated = true;
+            }
+          } else {
+            if (cabin.isRotated) {
+              cabinChild = cabin[it.childMethod][it.childNode];
+              cabinChild.setAttribute('xlink:href', '#coasterforward');
+              cabin.isRotated = false;
+            }
 
-          for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
-            cabin = _ref[i];
-            shift = i * it.cabinWidth;
-        
-              point = it.train1.path.getPointAtLength(this.length - shift);
-              prevPoint = it.train1.path.getPointAtLength(this.length - shift - 1);
-              x1 = point.y - prevPoint.y;
-              x2 = point.x - prevPoint.x;
-              angle = Math.atan(x1 / x2) * (180 / Math.PI);
-              x = point.x - 35;
-              y = point.y - 35;
-              if (point.x - prevPoint.x > 0) {
-                if (!cabin.isRotated) {
-                  cabinChild = cabin[it.childMethod][it.childNode];
-                  cabinChild.setAttribute('xlink:href', '#coasterreverse');
-                  cabin.isRotated = true;
-                  // traintween.stop();
-                  // traintween.to({length: 0}, 22500);
-                  // traintween.start();
-                }
-              } else {
-                if (cabin.isRotated) {
-                  cabinChild = cabin[it.childMethod][it.childNode];
-                  cabinChild.setAttribute('xlink:href', '#coasterforward');
-                  cabin.isRotated = false;
-                  // console.log("Setting speed to 37500");
-                  // traintween.stop();
-                  // traintween.to({length: 0}, 35000);
-                  // traintween.start();
-                }
-
-              }
-
-              attr = "translate(" + x + ", " + y + ") rotate(" + (angle || 0) + ",38,23)";
-              _results.push(cabin.setAttribute('transform', attr));
           }
-          
-          return _results;
-      }).start();
-    };
+
+          attr = "translate(" + x + ", " + y + ") rotate(" + (angle || 0) + ",38,23)";
+          _results.push(cabin.setAttribute('transform', attr));
+      }
+      
+      return _results;
+  }).start();
+};
   
-    animate = function() {
-        requestAnimationFrame(this.animate);
-        //move_track();
-        return TWEEN.update();
+animate = function() {
+    requestAnimationFrame(this.animate);
+    //move_track();
+    return TWEEN.update();
+};
+
+bind = function(func, context) {
+    var bindArgs, wrapper;
+    wrapper = function() {
+      var args, unshiftArgs;
+      args = Array.prototype.slice.call(arguments);
+      unshiftArgs = bindArgs.concat(args);
+      return func.apply(context, unshiftArgs);
     };
+    bindArgs = Array.prototype.slice.call(arguments, 2);
+    return wrapper;
+};
 
-    bind = function(func, context) {
-      var bindArgs, wrapper;
-      wrapper = function() {
-        var args, unshiftArgs;
-        args = Array.prototype.slice.call(arguments);
-        unshiftArgs = bindArgs.concat(args);
-        return func.apply(context, unshiftArgs);
-      };
-      bindArgs = Array.prototype.slice.call(arguments, 2);
-      return wrapper;
-    };
+function keep_coaster_on_screen(it) {
+  var cabin = it.train1.cabins[0];
+  var rect = cabin.getBoundingClientRect();
 
-// function move_track() {
-// 	var center = $(window).width()/2;
-// 	var position = $('#js-train-cabin1').position();
-// 	var left = position.left;
+  var winWidth = $(window).width();
+  var leftWin = (30*winWidth)/100;
+  lowLimit = leftWin + (30 * (winWidth - leftWin) / 100);
+  midlowLimit = leftWin + (50 * (winWidth - leftWin) / 100);
+  highLimit = 80 * (winWidth) / 100;
 
-// 	if(left > (center+100)) {
-// 		var shift = center - left;
-// 		console.log("Crossed half way");
-// 		console.log("shift: "+shift);
-// 		$('#coaster').animate({"left": "-=300px"});
-// 	}
-// }
+  if(lowLimit > rect.right) {
+    // Increase speed
+    traintween.stop();
+    if(cabin.isRotated) {
+      traintween.to({length: 0}, 35000);
+    }
+    else {
+      traintween.to({length: 0}, 40000);
+    }
+    traintween.start();
+  }
+  else if(midlowLimit > rect.right) {
+    // Increase speed
+    traintween.stop();
+    if(cabin.isRotated) {
+      traintween.to({length: 0}, 40000);
+    }
+    else {
+      traintween.to({length: 0}, 55000);
+    }
+    traintween.start();
+  }
+  else if(midlowLimit < rect.right && highLimit > rect.right) {
+    if(cabin.isRotated) {
+      traintween.stop();
+      traintween.to({length: 0}, 45000);
+      traintween.start();
+    }
+  }
+  else if(highLimit < rect.right) {
+    // Lower speed
+    traintween.stop();
+    traintween.to({length: 0}, 65000)
+    traintween.start();
+  }
 
-
+}
 
 function get_current_distance(time, speed) {
-  if(speed == 'slow'){
-    return time / 60000;
-  }
-  else if(speed == 'medium') {
-    return time / 40000;
-  }
-  else if(speed == 'fast') {
-    return time/30000;
-  }
-  else if(speed == 'super-slow') {
-    return time/75000;
-  }
+    if(speed == 'slow'){
+      return time / 60000;
+    }
+    else if(speed == 'medium') {
+      return time / 40000;
+    }
+    else if(speed == 'fast') {
+      return time/30000;
+    }
+    else if(speed == 'super-slow') {
+      return time/75000;
+    }
 }

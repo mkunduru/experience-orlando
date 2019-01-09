@@ -1,5 +1,6 @@
 var score = 0;
 var hit = false;
+var blast = false;
 var game_level_score = 0;
 var game_level_timer = 45;
 var timer_id = null;
@@ -172,28 +173,30 @@ function get_level_items(num_candy, num_lollipop, num_hourglass, num_rock, num_b
    ========================================================================== */
 
 function moveBalloon() {
-    for (var direction in keys) {
-        if (!keys.hasOwnProperty(direction)) continue;
-        if (direction == 37 && $("#balloon").offset().left > 25) {
+    if(!blast) {
+      for (var direction in keys) {
+          if (!keys.hasOwnProperty(direction)) continue;
+          if (direction == 37 && $("#balloon").offset().left > 25) {
+                idle = false;
+                idleSecondsCounter = 0;
+                $("#balloon").animate({left: "-=5"}, {duration: 0, queue: false});               
+          }
+          if (direction == 38 && $("#balloon").offset().top > 25) {
               idle = false;
               idleSecondsCounter = 0;
-              $("#balloon").animate({left: "-=5"}, {duration: 0, queue: false});               
-        }
-        if (direction == 38 && $("#balloon").offset().top > 25) {
-            idle = false;
-            idleSecondsCounter = 0;
-            $("#balloon").animate({top: "-=5"}, {duration: 0, queue: false});  
-        }
-        if (direction == 39 && $("#balloon").offset().left < ($(window).width()-125)) {
-            idle = false;
-            idleSecondsCounter = 0;
-            $("#balloon").animate({left: "+=5"}, {duration: 0, queue: false});  
-        }
-        if (direction == 40 && $("#balloon").offset().top < ($(window).height()-200)) {
-            idle = false;
-            idleSecondsCounter = 0;
-            $("#balloon").animate({top: "+=5"}, {duration: 0, queue: false});  
-        }
+              $("#balloon").animate({top: "-=5"}, {duration: 0, queue: false});  
+          }
+          if (direction == 39 && $("#balloon").offset().left < ($(window).width()-125)) {
+              idle = false;
+              idleSecondsCounter = 0;
+              $("#balloon").animate({left: "+=5"}, {duration: 0, queue: false});  
+          }
+          if (direction == 40 && $("#balloon").offset().top < ($(window).height()-200)) {
+              idle = false;
+              idleSecondsCounter = 0;
+              $("#balloon").animate({top: "+=5"}, {duration: 0, queue: false});  
+          }
+      }
     }
 }
 
@@ -314,12 +317,28 @@ function collisionClear($gift) {
     }, 2000);
     if($gift.attr("category") == "bad") {
       hit = true;
-      $("#balloon").addClass('blink');
+      blast = true;
+      //$("#balloon").addClass('blink');
+      blast_balloon();
       setTimeout(function(){
-        hit = false;
-        $("#balloon").removeClass('blink');
-      }, 4000);
+        setTimeout(function(){
+          hit = false;
+        }, 1000);
+        blast = false;
+        unblast_balloon();
+        //$("#balloon").removeClass('blink');
+      }, 1500);
     }
+}
+
+function blast_balloon() {
+  $("#full-balloon").hide();
+  $("#blast-balloon").show();
+}
+
+function unblast_balloon() {
+  $("#blast-balloon").hide();
+  $("#full-balloon").show();
 }
 
 /* ==========================================================================
@@ -334,7 +353,8 @@ function clean_slate() {
     clearInterval(timer_id);
     gift_timeouts = [];
     keys = {};
-    $("#balloon").removeClass('blink');
+    unblast_balloon();
+    //$("#balloon").removeClass('blink');
     $("#balloon").css('top', '70%');
     $("#balloon").css('left', '50%');
 }
