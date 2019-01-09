@@ -17,6 +17,7 @@ svg {
 
 .instruction-overlay {
     background: #1A1A1A;
+    background: #2e546a;
 }
 
 .instruction-overlay svg {
@@ -45,6 +46,7 @@ svg {
     width: 400px;
     height: 100vh;
     background-color: #1A1A1A;
+    background: #2e546a;
     display: none;
 }
 
