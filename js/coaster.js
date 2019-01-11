@@ -359,9 +359,9 @@ function failure_key(item) {
     $('.'+item.class).addClass('failure');
     if(key_hit_rate == -2) {
       if(!$('.coaster-slow').hasClass('paused')) {
-        $("#crash-sound").trigger("play");
-        $("#crash-sound").prop("volume", ".5");
-        $('.coaster-slow').addClass('paused');
+        // $("#crash-sound").trigger("play");
+        // $("#crash-sound").prop("volume", ".5");
+        // $('.coaster-slow').addClass('paused');
         setTimeout(function(){
           traintween.stop();
           var cabin = $('#js-train-cabin2').children('use');
