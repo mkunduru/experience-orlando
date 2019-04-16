@@ -137,6 +137,11 @@ textarea {
     src: url('../fonts/Raleway-SemiBold.ttf');
 }
 
+@font-face {
+    font-family: 'Global';
+    src: url('../fonts/GlobalFont.ttf');
+}
+
 body {
     overflow: hidden;
     margin: 0;
