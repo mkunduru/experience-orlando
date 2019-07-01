@@ -190,7 +190,6 @@ body {
 @media only screen and (max-width: 1280px) {
   #bio {
     top: 250px;
-    width: 850px;
     font-size: 20px;
     line-height: 34px;
   }

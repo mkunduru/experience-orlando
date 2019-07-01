@@ -288,11 +288,21 @@ h5 {
 	}
 }
 
+@media only screen and (max-width: 1376px) {
+    .flight {
+        top: 40px;
+    }
+
+    h1 {
+        padding-top: 55px;
+    }
+}
+
 @media only screen and (max-width: 1280px) {
 	h1 {
         font-size: 108px;
         line-height: 108px;
-        padding-top: 75px;
+        padding-top: 55px;
     }
 
     h4 {
