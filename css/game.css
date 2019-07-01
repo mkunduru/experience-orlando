@@ -261,9 +261,9 @@
     }
 
     .winner, .loser {
-        width: 250px;
-        margin-bottom: 25px;
-        margin-top: 25px;
+        width: 200px;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
 }
 
