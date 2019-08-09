@@ -16,7 +16,6 @@ $(document).ready(function() {
         show_play_icons();
         buzz_icons_hover();
         start_fireworks();
-
     });
 });
 
